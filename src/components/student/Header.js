@@ -1,6 +1,6 @@
 import './Header.css'
 import Sidebar from '../sidebar/Sidebar'
-// import Course from './Course'
+import Course from '../course/Course'
 // import Footer from './Footer'
 function Header() {
   return (
@@ -19,8 +19,8 @@ function Header() {
             </div>
 
              <Sidebar/>
-            {/* <Course/>
-            <Footer/>  */}
+            <Course/>
+            {/* <Footer/>  */}
     </>
     
   )
