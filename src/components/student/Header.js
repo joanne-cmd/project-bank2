@@ -1,7 +1,7 @@
 import './Header.css'
 import Sidebar from '../sidebar/Sidebar'
 import Course from '../course/Course'
-// import Footer from './Footer'
+import Footer from '../footer/Footer'
 function Header() {
   return (
     <>
@@ -20,7 +20,7 @@ function Header() {
 
              <Sidebar/>
             <Course/>
-            {/* <Footer/>  */}
+            <Footer/> 
     </>
     
   )
