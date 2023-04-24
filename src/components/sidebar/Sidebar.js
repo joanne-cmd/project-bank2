@@ -19,7 +19,7 @@ const Sidebar = () => {
         </NavLink>
       </li>
     <li className="options">
-      <NavLink to="/projects">
+      <NavLink to="/project">
         <FontAwesomeIcon icon={faBriefcase} /> <span>Projects</span>
       </NavLink>
     </li>
