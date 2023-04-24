@@ -111,10 +111,20 @@
   
   .view-more-button {
     margin-top: 10px;
-    background-color: #007bff;
+    background-color: #0A0E33;
     color: #fff;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+  }
+  
+  .project-container-header h1 {
+    color: black;
+    font-weight: bold;
+  }
+  
+  .project-container-header button {
+    background-color: #0A0E33;
+    color: #fff;
   }
   

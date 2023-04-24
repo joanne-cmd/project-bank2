@@ -37,7 +37,7 @@
     position: relative;
     width: 550px;
     height: 550px;
-    background-color: #a78bfa;
+    background-color: #0A0E33;
     border-radius: 30%;
     border-top-right-radius: 20%;
     border-bottom-right-radius: 80%;
@@ -60,7 +60,7 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
-    background-color: #f3f4f6;
+    background-color: #0A0E33;
     top: 5px;
     left: -30px;
     /* top: 50%;
@@ -73,4 +73,28 @@
       width: 100%;
     }
   } */
+  .primary.join-button {
+    background-color: #132b5e;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    animation: blink 1s linear infinite;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
   

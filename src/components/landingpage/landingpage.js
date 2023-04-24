@@ -20,10 +20,15 @@ function Landingpage (props) {
 			<section id="contentContainer">
 				<h2>Learning and teaching has never been easier.</h2>
 				<p>Teachers are able to add courses and student cohorts while viewing students project based learning. Come and rediscover the joy that is learning. </p>
-				<button className='primary'>
+				{/* <button className='primary'>
+					<p>Join Us</p>
+					<FontAwesomeIcon icon={ faArrowRightLong } />
+				</button> */}
+				<button className='primary join-button'>  
 					<p>Join Us</p>
 					<FontAwesomeIcon icon={ faArrowRightLong } />
 				</button>
+				
 			</section>
 
 			<section id="imageContainer">
