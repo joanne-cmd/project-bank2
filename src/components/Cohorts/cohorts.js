@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CohortForm from '../CohortForm/cohortForm';
 import './cohort.css';
-// import Sidebar from "../student home page/Sidebar";
+import Sidebar from "../sidebar/Sidebar";
 // import Header from '../student home page/Header';
 // import Navbar from '../Navbar/Navbar';
 
