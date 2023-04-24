@@ -1,5 +1,5 @@
 import './Header.css'
-// import Sidebar from './Sidebar'
+import Sidebar from '../sidebar/Sidebar'
 // import Course from './Course'
 // import Footer from './Footer'
 function Header() {
@@ -18,9 +18,9 @@ function Header() {
 
             </div>
 
-            {/* <Sidebar/>
-            <Course/>
-            <Footer/> */}
+             <Sidebar/>
+            {/* <Course/>
+            <Footer/>  */}
     </>
     
   )
