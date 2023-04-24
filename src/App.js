@@ -2,10 +2,11 @@ import { BrowserRouter,Routes, Route } from 'react-router-dom';
 import Header from "./components/student/Header";
 import Contact from './components/contact/Contact';
 import Landingpage from './components/landingpage/landingpage';
-
 import Project from './components/Projects/project';
 import Cohorts from './components/Cohorts/cohorts';
-
+import Logout from './components/Logout/logout';
+import Login from './components/Login/login';
+import AddProject from './components/Addproject/addprojectform';
 function App() {
   return (
     <BrowserRouter>
@@ -16,8 +17,9 @@ function App() {
         <Route path="/landingpage" element={<Landingpage/>}/>
         <Route path="/cohorts" element={<Cohorts/>}/>
         <Route path="/project" element={<Project/>}/>
-        
-
+        <Route path="/logout" element={<Logout/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/add-project" element={<AddProject />} />
       </Routes>
       
     </BrowserRouter>
