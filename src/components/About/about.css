@@ -1,0 +1,54 @@
+body {
+    background-color: #1c2331;
+    color: #fff;
+  }
+  
+  .about-container {
+    text-align: left;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+  }
+  
+  .about-container h1 {
+    color: #0A0E33;
+    font-size: 48px;
+    margin: 32px 0;
+  }
+  
+  .about-container p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .about-container section {
+    margin-bottom: 32px;
+  }
+  
+  .about-container a {
+    color: #007bff;
+  }
+  
+  .about-container a:hover {
+    color: #fff;
+  }
+  
+  .about-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .about-container li {
+    margin-bottom: 16px;
+  }
+  
+  .about-container li:before {
+    content: '\2022';
+    color: #007bff;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
