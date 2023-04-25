@@ -6,14 +6,17 @@ import AddProject from './components/Addproject/addprojectform'
 import Project from './components/Projects/project';
 import Cohorts from './components/Cohorts/cohorts';
 import Login from './components/Login/login';
+import Course from './components/course/Course';
+import Logout from "./components/Logout/logout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Header />} />
-        <Route path="/login" element={<Login/>} />
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/course" element={<Course />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/landingpage" element={<Landingpage />} />
         <Route path="/cohorts" element={<Cohorts />} />

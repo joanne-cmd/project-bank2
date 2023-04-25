@@ -20,7 +20,7 @@ const Login = () => {
     } else if (domain === "student.com" && password === "student123") {
       alert("Student login successful"); // Show success message
       // Redirect to student dashboard
-      window.location.href = "/student-dashboard";
+      window.location.href = "/";
     } else {
       alert("Login failed");
     }
