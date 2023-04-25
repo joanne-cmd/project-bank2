@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Addproject.css"; 
+import Sidebar from "../sidebar/Sidebar";
 const ProjectForm = () => {
   const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
@@ -42,9 +43,11 @@ const ProjectForm = () => {
   };
 
   return (
-    <div className="project-form-container">
+    <>
+      <Sidebar />
+      <h2 className="add-h">Add New Project</h2>
+
       <div className="form-container">
-        <h2>Add New Project</h2>
         <form onSubmit={handleSubmit} className="project-form">
           <label htmlFor="projectName">Project Name</label>
           <input
@@ -73,7 +76,7 @@ const ProjectForm = () => {
             onChange={(e) => setGithubLink(e.target.value)}
           />
 
-          <label>
+          <label className="course-select">
             <select value={course} onChange={(e) => setCourse(e.target.value)}>
               <option value="">Select a course</option>
               <option value="Android Development">Android Development</option>
@@ -87,7 +90,7 @@ const ProjectForm = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

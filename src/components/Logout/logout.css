@@ -4,6 +4,7 @@
   align-items: center;
   height: 100vh;
   background-color: #f0f0f0;
+  align-content: center;
 }
 
 .form-container {
@@ -16,7 +17,8 @@
 
 h2 {
   font-size: 20px;
-  text-align: center;
+  /* text-align: center; */
+  /* margin-left: 10rem; */
 }
 
 .logout-form {

@@ -1,18 +1,18 @@
-.project-form-container {
-  background-color: rgb(26, 26, 36); /* Set background color to darkblue */
-  padding: 20px;
-  width: 100%;
-  height: 100vh;
-}
 
-.sidebar {
-  flex: 0 0 20%;
+h2{
+  align-content: center;
+  margin-left: 15rem;
+
 }
 
 .project-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 30rem;
+  height: 70vh;
+  margin-left: 20rem;
+
 }
 
 label {
@@ -22,7 +22,7 @@ label {
 input,
 textarea {
   width: 50%;
-  padding: 10px;
+  padding: 1.5rem;
   margin-top: 5px;
 }
 
@@ -40,4 +40,8 @@ button {
     border-radius: 4px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     
+}
+.course-select{
+  width: 10rem;
+  
 }

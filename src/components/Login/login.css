@@ -1,5 +1,7 @@
 /* login.css */
-
+body{
+  background-color: #dcd7d7;
+}
 .login {
   width: 400px;
   margin: 0 auto;
