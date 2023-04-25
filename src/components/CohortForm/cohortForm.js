@@ -19,8 +19,10 @@ const CohortForm = (props) => {
 	};
 
 	return (
-		<div className='cohort__form'>
+		<>
 			<h2 className='add__title'>ADD COHORT</h2>
+			<div className='cohort__form'>
+			
 			<form onSubmit={ handleSubmit } className='cohort-form'>
 				<Input className="name__text" labelTxt={ 'Name' } id='name' type={ 'text' } onChangeFn={ (event) => setName(event.target.value) } value={ name } required={ true } />
 				<br />
@@ -43,6 +45,8 @@ const CohortForm = (props) => {
 				<br />
 			</form>
 		</div>
+		</>
+		
 	);
 };
 

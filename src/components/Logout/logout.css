@@ -5,7 +5,7 @@
   height: 100vh;
   background-color: #f0f0f0;
   align-content: center;
-  background-color:blue;
+  
 }
 
 .form-container {
@@ -17,10 +17,14 @@
 }
 
 .goingout {
-  font-size: 20px;
-  /* text-align: center; */
-  /* margin-left: 10rem; */
-}
+    font-size: 20px;
+    text-align: center;
+    margin-left: 2rem;
+    font-weight: 800;
+  }
+  
+
+
 
 .logout-form {
   margin-top: 20px;

@@ -95,7 +95,7 @@ button[type='button'] {
 .login-heading {
   text-align: center;
   margin-bottom: 20px;
-  margin-right: 66pc;
+  margin-left: 25pc;
   font-weight: 800;
 }
 
@@ -126,6 +126,9 @@ button[type='button'] {
   background:  #1784bf;
   color: #fff;
   cursor: pointer;
+}
+.login-button:hover {
+  background-color: #07090c;
 }
 
 /* Style the login form checkbox */

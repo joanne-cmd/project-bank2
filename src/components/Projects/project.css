@@ -125,7 +125,22 @@
   }
   
   .project-container-header button {
-    background-color:#1784bf;
-    color: #fff;
+    background-color: #1784bf;
+    color:#fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: right;
+    right: 0;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    position: fixed;
+    right: 0;
+    text-align: right;
+    margin-right: 20px;
+   font-weight: 800;
+   border-radius: 10px;
+  
   }
   

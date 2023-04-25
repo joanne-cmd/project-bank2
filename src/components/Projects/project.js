@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import './project.css';
+import Sidebar from "../sidebar/Sidebar";
 
 function ShowProjects () {
 	// State to store added projects
@@ -75,7 +76,10 @@ const Project = () => {
 	};
 
 	return (
-		<div className="project-container">
+		<>
+			<Sidebar/>
+			
+			<div className="project-container">
 			<section className="project-container-header">
 				<h2>Projects</h2>
 				<button onClick={ handleAddProject } className="add-project-button primary">
@@ -84,6 +88,7 @@ const Project = () => {
 			</section>
 			<ShowProjects />
 		</div>
+		</>
 	);
 };
 

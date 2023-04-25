@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {  useNavigate } from "react-router-dom";
 import "./login.css"; 
+import Sidebar from "../sidebar/Sidebar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -66,7 +67,7 @@ const Login = () => {
     <>
       <h1 className="login-heading">Login</h1>
       
-      
+      <Sidebar/>
       <div className="login">   
       <form className="login-form">
         <label className="login-label">Email:</label>
