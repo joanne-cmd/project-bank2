@@ -4,28 +4,10 @@ import "./project.css"; // Import CSS file for styling
 const ProjectForm = () => {
   const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
-  const [owner, setOwner] = useState("");
-  const [members, setMembers] = useState([]);
   const [githubLink, setGithubLink] = useState("");
   const [course, setCourse] = useState("");
 
-  const handleMemberChange = (index, field, value) => {
-    const updatedMembers = [...members];
-    updatedMembers[index][field] = value;
-    setMembers(updatedMembers);
-  };
 
-  const addMember = () => {
-    if (members.length < 5) {
-      setMembers([...members, { name: "", email: "" }]);
-    }
-  };
-
-  const removeMember = (index) => {
-    const updatedMembers = [...members];
-    updatedMembers.splice(index, 1);
-    setMembers(updatedMembers);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,14 +16,12 @@ const ProjectForm = () => {
     const projectData = {
       projectName,
       description,
-      owner,
-      members,
       githubLink,
       course,
     };
 
     try {
-      const response = await fetch("http://localhost:3000/api/projects", {
+      const response = await fetch("http://localhost:3000/projects", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,8 +34,6 @@ const ProjectForm = () => {
         // Clear form inputs
         setProjectName("");
         setDescription("");
-        setOwner("");
-        setMembers([]);
         setGithubLink("");
         setCourse("");
       } else {
