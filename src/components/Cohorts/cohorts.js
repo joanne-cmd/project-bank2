@@ -38,8 +38,8 @@ const Cohorts = () => {
 		<Sidebar/>
 			<div className='cohorts'>
 				<section className='cohortsHead'>
-					<h1>COHORTS</h1>
-					<button onClick={ handleShowForm } className='primary'>ADD COHORT</button>
+					<h1 className='title__cohorts'>COHORTS</h1>
+					<button onClick={ handleShowForm } className='primary__add'>ADD COHORT</button>
 				</section>
 
 					{ showForm && (
@@ -54,7 +54,7 @@ const Cohorts = () => {
 							</div>
 						</div>
 					) }
-					<table>
+					<table className='course__details'>
 						<thead>
 							<tr>
 								<th>NAME</th>

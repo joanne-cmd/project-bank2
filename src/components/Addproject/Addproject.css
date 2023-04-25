@@ -19,20 +19,20 @@ label {
   margin-top: 10px;
 }
 
-input,
+/* input,
 textarea {
   width: 50%;
   padding: 10px;
   margin-top: 5px;
-}
+} */
 
-button {
+/* button {
   background-color: rgb(183, 183, 218); /* Set background color to darkblue */
-  color: rgb(230, 165, 165);
+  /* color: rgb(230, 165, 165);
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-}
+} */ 
 .form-container {
     padding: 20px;
     width: 100%;

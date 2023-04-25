@@ -1,4 +1,4 @@
-.landingPageContainer {
+/* .landingPageContainer {
     display: flex;
     position: relative;
     padding: 0px 32px;
@@ -65,15 +65,15 @@
     left: -30px;
     /* top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%); */
-  }
+    transform: translateX(-50%) translateY(-50%);  }*/
+ 
   
   /* @media screen and (max-width: 768px) {
     .contentContainer {
       width: 100%;
     }
   } */
-  .primary.join-button {
+  /* .primary.join-button {
     background-color: #132b5e;
     color: #fff;
     border: none;
@@ -95,6 +95,6 @@
     100% {
       opacity: 1;
     }
-  }
+  } */
   
-  
+   

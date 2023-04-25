@@ -63,8 +63,10 @@ const Login = () => {
     }
   };
   return (
-    <div className="login">
+    <>
       <h1 className="login-heading">Login</h1>
+
+      <div className="login">
       <form className="login-form">
         <label className="login-label">Email:</label>
         <input
@@ -144,6 +146,8 @@ const Login = () => {
         )}
       </form>
     </div>
+    </>
+    
   );
 };
 

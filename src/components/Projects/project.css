@@ -1,6 +1,7 @@
 .project-container {
     display: flex;
     flex-direction: column;
+    margin-left: 20pc;
   }
   
   .project-container-header {

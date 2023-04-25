@@ -14,7 +14,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.goingout {
   font-size: 20px;
   text-align: center;
 }
@@ -23,12 +23,12 @@ h2 {
   margin-top: 20px;
 }
 
-p {
+.paragraph{
   font-size: 16px;
   text-align: center;
 }
 
-button[type="submit"] {
+.btnn__logout[type="submit"] {
   display: block;
   width: 100%;
   padding: 10px;
@@ -42,6 +42,6 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.btnn__logout:hover {
   background-color: #161b20;
 }
