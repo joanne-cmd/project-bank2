@@ -60,7 +60,7 @@ const Project = () => {
 	const handleAddProject = () => {
 		// Add logic to handle "Add Project" button click
 		// You can perform any action here, such as displaying a modal, navigating to a different page, etc.
-		navigate("/add-project");
+		navigate("/login");
 	};
 
 	return (

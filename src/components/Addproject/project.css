@@ -1,21 +1,32 @@
-.project-form-container {
-  background-color: rgb(26, 26, 36); /* Set background color to darkblue */
-  padding: 20px;
+/* .project-form-container {
+  background-color: rgb(26, 26, 36); 
+  padding: 40px;
   width: 50%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  
+} */
+.h2 {
+    font-size: calc(1.325rem + 0.9vw);
+    margin-left: 70%;
 }
 
-.sidebar {
-  flex: 0 0 20%;
-}
 
 .project-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 30%;
+  height: 80vh;
+  background-color:#020733 ;
+  margin-left: 30%;
 }
 
 label {
   margin-top: 10px;
+    padding: 1.5rem;
+
 }
 
 input,
@@ -26,7 +37,7 @@ textarea {
 }
 
 button {
-  background-color: rgb(183, 183, 218); /* Set background color to darkblue */
+  background-color: #1784bf;
   color: rgb(230, 165, 165);
   padding: 10px 20px;
   border: none;

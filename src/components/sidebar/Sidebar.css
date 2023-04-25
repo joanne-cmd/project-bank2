@@ -4,7 +4,7 @@
     bottom: 0; 
     height: 100%;
     width: 260px;
-    background:rgb(1, 1, 43);
+    background:#020733;
     z-index: 100;
     transition: all 0.5s ease;
     
@@ -15,13 +15,13 @@
     text-decoration: none;
     padding-top: 25px;
     padding-bottom: 25px;
-    font-size: xx-large;
+    font-size: 1em;
              
 }
 
 .options span{
 color: white;
-font-size: x-large;
+font-size: large;
 margin-top: 20px;
 }
 
@@ -35,7 +35,7 @@ margin-top: 20px;
   }
   
   .options span:hover {
-    background-color:#33415c;
+    background-color:#020733;
     border-radius: 10px;
     width: 120px;
     margin-right: 10px;

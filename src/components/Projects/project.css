@@ -111,20 +111,22 @@
   
   .view-more-button {
     margin-top: 10px;
-    background-color: #0A0E33;
+    background-color:#1784bf;
     color: #fff;
     border: none;
     border-radius: 3px;
     cursor: pointer;
   }
-  
+  .secondary{
+    background-color: #1784bf;
+  }
   .project-container-header h1 {
     color: black;
     font-weight: bold;
   }
   
   .project-container-header button {
-    background-color: #0A0E33;
+    background-color: #1784bf;
     color: #fff;
   }
   
