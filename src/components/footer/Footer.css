@@ -1,7 +1,9 @@
 .text-center{
     
-    width: 260;
+    width: calc(100% - 260px);
+    left: 260px;
     bottom: 0%;
+    position:relative;
     /* position: relative; */
     
 }
