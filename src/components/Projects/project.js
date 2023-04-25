@@ -53,7 +53,7 @@ const Project = () => {
 	// Function to handle "View More" button click
 	const handleViewMore = (projectId) => {
 		// Navigate to project details page with projectId
-		navigate("/project/" + projectId);
+		navigate("/projects/" + projectId);
 	};
 
 	// Function to handle "Add Project" button click
