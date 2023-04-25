@@ -34,7 +34,7 @@ table {
   }
   
   button {
-    background-color: #6e7f6e97;
+    background-color: blue;
     color: rgb(6, 6, 6);
     border: none;
     padding: 10px 20px;
@@ -91,7 +91,8 @@ table {
   }
   
   .cohortsHead h1 {
-    margin-bottom: 0 !important;
+    margin-bottom: 5px !important;
+    font-weight: 800;
   }
   
   .cohortsHead button {
@@ -101,6 +102,9 @@ table {
   }
   
   .delete-button {
-    background-color: red;
+    background-color:rgb(6, 51, 175);
+    color: white;
+    border-radius: 12px;
   }
+
   

@@ -1,6 +1,6 @@
 import React from "react";
 import "./logout.css"; // Import CSS file for styling
-
+import { Link } from "react-router-dom";
 const LogoutForm = ({ handleLogout }) => {
   return (
     <div className="logout-form-container">
@@ -8,7 +8,7 @@ const LogoutForm = ({ handleLogout }) => {
         <h2>Logout</h2>
         <form onSubmit={handleLogout} className="logout-form">
           <p>Are you sure you want to logout?</p>
-          <button type="submit">Logout</button>
+          <Link to="/"><button type="submit">Logout</button> </Link>
         </form>
       </div>
     </div>

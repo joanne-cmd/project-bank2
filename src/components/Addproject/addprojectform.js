@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./project.css"; // Import CSS file for styling
+import "./Addproject.css"; // Import CSS file for styling
 
 const ProjectForm = () => {
   const [projectName, setProjectName] = useState("");
