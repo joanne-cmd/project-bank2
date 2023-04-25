@@ -7,6 +7,7 @@ import Cohorts from './components/Cohorts/cohorts';
 import Logout from './components/Logout/logout';
 import Login from './components/Login/login';
 import AddProject from './components/Addproject/addprojectform';
+import CohortForm from './components/CohortForm/cohortForm';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,8 @@ function App() {
         <Route path="/logout" element={<Logout/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-project" element={<AddProject />} />
+        <Route path="/add-project" element={<AddProject />} />
+        <Route path="/cohortform" element={<CohortForm />} />
       </Routes>
       
     </BrowserRouter>

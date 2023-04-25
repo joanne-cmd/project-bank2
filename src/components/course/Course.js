@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Course.css'
 function Course() {
   return (
@@ -6,10 +7,13 @@ function Course() {
         <h1> Courses</h1>
         <div className='course'>
        {/* <div><h1>Courses</h1></div>  */}
-        <div className='stack'>
-            <img className='pictures' src='https://crampete-staticfiles.s3.ap-south-1.amazonaws.com/images/blog/full-stack-development-project.png' alt='fullstack'/>
-            <span> Full-stack Development</span>
-        </div>
+       <Link to="/project">
+            <div className='stack'>
+                    <img className='pictures' src='https://crampete-staticfiles.s3.ap-south-1.amazonaws.com/images/blog/full-stack-development-project.png' alt='fullstack'/>
+                    <span> Full-stack Development</span>
+                </div>
+       </Link>
+        
         <div className='stack'>
             <img className='pictures' src='https://codersera.com/blog/wp-content/uploads/2021/08/Data-Science-project-ideas-.jpeg' alt='data science'/>
             <span> Data Science</span>
