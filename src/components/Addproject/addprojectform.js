@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./Addproject.css"; // Import CSS file for styling
-
+import "./Addproject.css"; 
 const ProjectForm = () => {
   const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
@@ -11,8 +10,6 @@ const ProjectForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to submit project data to backend or perform desired action
-    // Example implementation using fetch API to send data to Rails backend:
     const projectData = {
       projectName,
       description,

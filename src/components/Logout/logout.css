@@ -30,18 +30,21 @@ p {
 
 button[type="submit"] {
   display: block;
-  width: 100%;
+  width: 50%;
   padding: 10px;
   margin-top: 10px;
-  background-color: #121b25;
+  background-color: #1784bf ;
   color: #f3eded;
   font-size: 16px;
   font-weight: bold;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  align-items: center;
+  margin-left: 70px;
+  align-content: center;
 }
 
 button[type="submit"]:hover {
-  background-color: #161b20;
+  background-color: #0a0a0a;
 }
