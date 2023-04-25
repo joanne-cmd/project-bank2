@@ -9,6 +9,11 @@ import Login from './components/Login/login';
 import AddProject from './components/Addproject/addprojectform';
 import CohortForm from './components/CohortForm/cohortForm';
 import ProjectDetails from './components/Projectdets/projectdets';
+
+import CohortForm from './components/CohortForm/cohortForm';
+
+import ProjectDetails from './components/Projectdets/projectdets';
+
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +29,12 @@ function App() {
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/cohortform" element={<CohortForm />} />
         <Route path="/project-dets" element={<ProjectDetails />} />
+
+        <Route path="/add-project" element={<AddProject />} />
+        <Route path="/cohortform" element={<CohortForm />} />
+
+        <Route path="/project-dets" element={<ProjectDetails />} />
+
       </Routes>
     </BrowserRouter>
   );
