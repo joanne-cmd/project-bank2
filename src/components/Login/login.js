@@ -65,8 +65,9 @@ const Login = () => {
   return (
     <>
       <h1 className="login-heading">Login</h1>
-
-      <div className="login">
+      
+      
+      <div className="login">   
       <form className="login-form">
         <label className="login-label">Email:</label>
         <input

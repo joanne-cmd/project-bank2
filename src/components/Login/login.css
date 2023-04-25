@@ -1,6 +1,6 @@
 /* login.css */
 
-.login {
+/* .login {
   width: fit-content;
   margin-top: 10pc;
   width: 400px;
@@ -17,12 +17,6 @@
 .login-heading{
   margin-right:100%}
 
-.login-heading {
-  text-align: center;
-  margin-bottom: 20px;
-  margin-right: 66pc;
-  font-weight: 800;
-}
 
 .login-form {
   display: flex;
@@ -72,4 +66,80 @@ button[type='button'] {
 
 .login-label input{
   margin-left: 4px;
+} */
+/* new code */
+
+/* Define the Grassmorphic animation */
+@keyframes grassmorphic {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+/* Center the login form */
+.login {
+  width: 400px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+  background: #fff;
+}
+
+.login-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-right: 66pc;
+  font-weight: 800;
+}
+
+/* Style the login form labels */
+.login-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style the login form inputs */
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #f5f5f5;
+}
+
+/* Style the login form buttons */
+.login-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background:  #1784bf;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Style the login form checkbox */
+.login-checkbox {
+  margin-right: 5px;
+}
+.login-image {
+  float: left;
+  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+}
+.image__auth{
+  display: flex;
+  justify-content: center;
+  height:100vh ;
 }

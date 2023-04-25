@@ -53,7 +53,7 @@
   
  
   
-  button:hover {
+  .cohortButton__cancel,.cohortButton__submit:hover {
     opacity: 0.8;
   }
   
