@@ -10,10 +10,6 @@ import AddProject from './components/Addproject/addprojectform';
 import CohortForm from './components/CohortForm/cohortForm';
 import ProjectDetails from './components/Projectdets/projectdets';
 
-import CohortForm from './components/CohortForm/cohortForm';
-
-import ProjectDetails from './components/Projectdets/projectdets';
-
 function App() {
   return (
     <BrowserRouter>
