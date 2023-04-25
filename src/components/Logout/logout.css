@@ -3,8 +3,12 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+<<<<<<< HEAD
   background-color: #f0f0f0;
   align-content: center;
+=======
+  background-color:blue;
+>>>>>>> 73a42aaac353a0343c09ed5f98bff1e2979e9541
 }
 
 .form-container {
@@ -15,7 +19,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.goingout {
   font-size: 20px;
   /* text-align: center; */
   /* margin-left: 10rem; */
@@ -25,12 +29,12 @@ h2 {
   margin-top: 20px;
 }
 
-p {
+.paragraph{
   font-size: 16px;
   text-align: center;
 }
 
-button[type="submit"] {
+.btnn__logout{
   display: block;
   width: 50%;
   padding: 10px;
@@ -47,6 +51,6 @@ button[type="submit"] {
   align-content: center;
 }
 
-button[type="submit"]:hover {
+.btnn__logout:hover {
   background-color: #0a0a0a;
 }

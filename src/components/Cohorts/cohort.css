@@ -1,10 +1,10 @@
-table {
+ .course__details{
     border-collapse: collapse;
     width: 100%;
     counter-reset: step;
   }
   
-  table td:first-child::before {
+  .course__details td:first-child::before {
     counter-increment: step;
     content: counter(step, decimal) '.';
     color: black;
@@ -33,9 +33,9 @@ table {
     background-color: #f2f2f2;
   }
   
-  button {
+   .primary__add{
     background-color: blue;
-    color: rgb(6, 6, 6);
+    color:#fff;
     border: none;
     padding: 10px 20px;
     text-align: right;
@@ -44,23 +44,24 @@ table {
     display: inline-block;
     font-size: 16px;
     margin-bottom: 10px;
-  }
-  
-  button:hover {
-    cursor: pointer;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  .h1-button {
     position: fixed;
-    top: 50px;
     right: 0;
     text-align: right;
     margin-right: 20px;
+   font-weight: 800;
+   border-radius: 10px;
+  
+  } 
+  
+  .primary__add:hover {
+    cursor: pointer;
   }
+  
+  .title__cohorts {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+   
   
   .popup {
     position: fixed;
@@ -102,9 +103,15 @@ table {
   }
   
   .delete-button {
-    background-color:rgb(6, 51, 175);
-    color: white;
-    border-radius: 12px;
+    background-color:#E4C2C2;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
   }
+  
 
   

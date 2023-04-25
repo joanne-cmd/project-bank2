@@ -16,8 +16,8 @@
     margin-top: 1px;
   }
   
-  .header h2 {
-    flex: 0.8;
+  .header  .title__h {
+    margin-right: 20pc;
     color: #05043D;
     font-weight: 800;
   }

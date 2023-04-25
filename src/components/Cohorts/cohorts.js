@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CohortForm from '../CohortForm/cohortForm';
 import './cohort.css';
 import Sidebar from "../sidebar/Sidebar";
 
-
+function ShowCohorts ({ cohorts, handleDeleteCohort }) {
+	return <>
+		{ cohorts.map((cohort, index) => (
+			<tr key={ index }>
+				<td>{ cohort.name }</td>
+				<td>{ cohort.course }</td>
+				<td>{ cohort.numberOfStudents }</td>
+				<td>
+					<button className="delete-button" onClick={ () => handleDeleteCohort(index) }>Delete</button>
+				</td>
+			</tr>
+		)) }
+	</>
+}
 
 const Cohorts = () => {
-	const [cohorts, setCohorts] = useState([]);
+	const [cohorts, setCohorts] = useState(undefined);
 	const [showForm, setShowForm] = useState(false);
 	const [selectedCohortIndex, setSelectedCohortIndex] = useState(-1);
 
@@ -24,6 +37,18 @@ const Cohorts = () => {
 		}
 	};
 
+	function ShowCohorts () {
+		fetch('http://localhost:8000/cohorts')
+			.then((res) => res.json())
+			.then((cohorts) => setCohorts(cohorts))
+			.catch((err) => alert(err));
+	}
+
+	useEffect(() => {
+		ShowCohorts();
+		return;
+	}, [])
+
 	const handleShowForm = () => {
 		setSelectedCohortIndex(-1);
 		setShowForm(true);
@@ -35,51 +60,43 @@ const Cohorts = () => {
 
 	return (
 		<>
-		<Sidebar/>
+			<Sidebar />
 			<div className='cohorts'>
 				<section className='cohortsHead'>
-					<h1>COHORTS</h1>
-					<button onClick={ handleShowForm } className='primary'>ADD COHORT</button>
+					<h1 className='title__cohorts'>COHORTS</h1>
+					<button onClick={ handleShowForm } className='primary__add'>ADD COHORT</button>
 				</section>
 
-					{ showForm && (
-						<div className="popup">
-							<div className="popup-inner">
-								<CohortForm
-									onClose={ handleCloseForm }
-									onAdd={ handleAddCohort }
-									onUpdate={ setCohorts }
-									selectedCohort={ cohorts[selectedCohortIndex] }
-								/>
-							</div>
+				{ showForm && (
+					<div className="popup">
+						<div className="popup-inner">
+							<CohortForm
+								onClose={ handleCloseForm }
+								onAdd={ handleAddCohort }
+								onUpdate={ setCohorts }
+								selectedCohort={ cohorts[selectedCohortIndex] }
+							/>
 						</div>
-					) }
-					<table>
-						<thead>
-							<tr>
-								<th>NAME</th>
-								<th>COURSE</th>
-								<th>NUMBER OF STUDENT</th>
-								<th>ACTION</th>
-							</tr>
-						</thead>
+					</div>
+				) }
+				<table className='course__details'>
+					<thead>
+						<tr>
+							<th>NAME</th>
+							<th>COURSE</th>
+							<th>NUMBER OF STUDENT</th>
+							<th>ACTION</th>
+						</tr>
+					</thead>
 
+					{ cohorts && cohorts.length > 0 ?
 						<tbody>
-							{ cohorts.map((cohort, index) => (
-								<tr key={ index }>
-									<td>{ cohort.name }</td>
-									<td>{ cohort.course }</td>
-									<td>{ cohort.numberOfStudents }</td>
-									<td>
-										<button className="delete-button" onClick={ () => handleDeleteCohort(index) }>Delete</button>
-									</td>
-								</tr>
-							)) }
-						</tbody>
-					</table>
+							<ShowCohorts cohorts={ cohorts } handleDeleteCohort={ handleDeleteCohort } />
+						</tbody> : <h1 style={ { width: 100 + '%', textAlign: 'center', position: 'absolute' } }>No cohorts found</h1> }
+				</table>
 			</div>
 		</>
-		
+
 	);
 };
 

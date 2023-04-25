@@ -44,6 +44,7 @@
   label{
       font-weight: 700;
   }
+  
   .submit{
     background-color:rgb(1, 1, 58);
     color: #fff;
@@ -61,9 +62,9 @@
       text-align: center;
       font-weight: 800;
   }
-  submit-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
+  .submit-button {
+    background-color: #0A0E33; 
+     border: none;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -71,7 +72,7 @@
     display: inline-block;
     font-size: 16px;
     margin-right: 5px;
-  }
+  } 
 
   .goback-button {
     background-color:rgb(63, 104, 63); /* Red */

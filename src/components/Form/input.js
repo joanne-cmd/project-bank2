@@ -5,7 +5,7 @@ function Input ({ id, onChangeFn, labelTxt, ...rest }) {
 		<div className="input-container">
 			{ labelTxt ? <label htmlFor={ `${id}` }>{ labelTxt }:</label> : '' }
 
-			<input
+			<input className="field__input"
 				id={ `${id}` }
 				onChange={ onChangeFn }
 				// required={ required ? required : false }
