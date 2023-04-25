@@ -1,41 +1,67 @@
 import React, { useState } from "react";
-import "./login.css"; // Import the CSS file for styling
+import {  useNavigate } from "react-router-dom";
+import "./login.css"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+   const [newPassword, setNewPassword] = useState("");
+   const [confirmPassword, setConfirmPassword] = useState("");
   const [resetPassword, setResetPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate(); // Use navigate from react-router-dom for programmatic navigation
 
-  const handleLogin = () => {
-    // Extract the domain from the email address
+  const handleLogin = async () => {
     const domain = email.split("@")[1];
 
-    if (domain === "admin.com" && password === "admin123") {
-      alert("Admin login successful"); // Show success message
-      // Redirect to admin dashboard
-      window.location.href = "/admin-dashboard";
-    } else if (domain === "student.com" && password === "student123") {
-      alert("Student login successful"); // Show success message
-      // Redirect to student dashboard
-      window.location.href = "/student-dashboard";
-    } else {
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Login successful");
+        if (domain === "admin.com") {
+          navigate("/cohort-form"); 
+        } else if (domain === "student.com") {
+          navigate("/add-project");
+        }
+      } else {
+        alert("Login failed");
+      }
+    } catch (error) {
       alert("Login failed");
     }
   };
 
-  const handleResetPassword = () => {
-    if (newPassword !== confirmPassword) {
-      alert("New password and confirm password do not match!");
-      return;
-    }
-    // Handle password reset logic here
-    alert("Password reset successful!");
-    setResetPassword(false);
-  };
+  const handleResetPassword = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/reset-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Password reset successful!");
+        setResetPassword(false);
+      } else {
+        alert("Password reset failed");
+      }
+    } catch (error) {
+      alert("Password reset failed");
+    }
+  };
   return (
     <div className="login">
       <h1 className="login-heading">Login</h1>

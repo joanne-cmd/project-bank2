@@ -53,14 +53,14 @@ const Project = () => {
 	// Function to handle "View More" button click
 	const handleViewMore = (projectId) => {
 		// Navigate to project details page with projectId
-		navigate("/project/" + projectId);
+		navigate("/project-dets/" + projectId);
 	};
 
 	// Function to handle "Add Project" button click
 	const handleAddProject = () => {
 		// Add logic to handle "Add Project" button click
 		// You can perform any action here, such as displaying a modal, navigating to a different page, etc.
-		navigate("/add-project");
+		navigate("/login");
 	};
 
 	return (

@@ -7,21 +7,21 @@ import Cohorts from './components/Cohorts/cohorts';
 import Logout from './components/Logout/logout';
 import Login from './components/Login/login';
 import AddProject from './components/Addproject/addprojectform';
+import ProjectDetails from './components/Projectdets/projectdets';
 function App() {
   return (
     <BrowserRouter>
-      
       <Routes>
-        <Route path="/" element={<Header/>}/>
-        <Route path="/contact" element={<Contact/>}/>
-        <Route path="/landingpage" element={<Landingpage/>}/>
-        <Route path="/cohorts" element={<Cohorts/>}/>
-        <Route path="/project" element={<Project/>}/>
-        <Route path="/logout" element={<Logout/>} />
+        <Route path="/" element={<Header />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/landingpage" element={<Landingpage />} />
+        <Route path="/cohorts" element={<Cohorts />} />
+        <Route path="/projects" element={<Project />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-project" element={<AddProject />} />
+        <Route path="/project-dets" element={<ProjectDetails />} />
       </Routes>
-      
     </BrowserRouter>
   );
 }
