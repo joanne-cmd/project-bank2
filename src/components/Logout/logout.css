@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color:blue;
 }
 
 .form-container {
@@ -28,7 +28,7 @@
   text-align: center;
 }
 
-.btnn__logout[type="submit"] {
+.btnn__logout{
   display: block;
   width: 50%;
   padding: 10px;
@@ -45,6 +45,6 @@
   align-content: center;
 }
 
-button[type="submit"]:hover {
+.btnn__logout:hover {
   background-color: #0a0a0a;
 }

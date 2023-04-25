@@ -27,6 +27,7 @@ const ProjectDetails = ({ projectId }) => {
   }
 
   return (
+    
     <div>
       <h2>Project Details</h2>
       <p>Project Name: {projectData.projectName}</p>
