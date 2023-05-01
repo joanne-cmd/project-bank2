@@ -1,156 +1,123 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./login.css";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import "./project.css";
 import Sidebar from "../sidebar/Sidebar";
-import axios from "axios"; // Import axios for making HTTP requests
+import ProjectDetails from "../Projectdets/projectdets";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [type, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [resetPassword, setResetPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
+function ShowProjects() {
+  // State to store added projects
+  const [projects, setProjects] = useState(undefined);
+  const [projectData, setProjectData] = useState(null);
 
-  const handleLogin = async () => {
-    // Extract the domain from the email address
-    const domain = email.split("@")[1];
+  const navigate = useNavigate();
 
-    console.log(email);
-    console.log(password);
+  function showProjects() {
+    fetch("/projects")
+      .then((res) => res.json())
+      .then((projects) => setProjects(projects))
+      .catch((err) => alert("unable to get projects."));
+  }
 
-    try {
-      // Make HTTP request to backend for login
-      const response = await axios.post("/login", {
-        email,
-        password,
+  // function viewProject (id) {
+  // 	fetch(`http://localhost/3000/projects/${id}`)
+  // 		.then((res) => res.json())
+  // 		.then((projectData) => projectData)
+  // }
+
+  function viewProject(id) {
+    fetch(`/projects/${id}`)
+      .then((res) => res.json())
+      .then((projectData) => {
+        console.log(projectData);
+        setProjectData(projectData);
+        navigate("/project-dets", { state: { projectData } });
       });
-      console.log(response.data.email.split("@")[1]);
+  }
 
-      if (response.data.email.split("@")[1] === "student.moringaschool.com") {
-        alert("Login successful"); // Show success message
-        // Redirect to dashboard based on domain
-        window.location.href = "/projects";
-      } else if (
-        response.data.email.split("@")[1] === "admin.moringaschool.com"
-      ) {
-        window.location.href = "/cohorts";
-      } else {
-        alert("Login failed");
-      }
-    } catch (error) {
-      alert("Login failed");
-    }
-  };
+  useEffect(() => {
+    showProjects();
+    return;
+  }, []);
 
-  const handleResetPassword = async () => {
-    console.log(email);
-    console.log(type);
-    try {
-      // Make HTTP request to backend for password reset
-      const response = await axios.post("/password_reset", {
-        email,
-        type,
-      });
-      console.log(response.status);
-      if (response.status === 200) {
-        alert("Password reset successful!");
-        setResetPassword(false);
-      } else {
-        alert("Password reset failed");
-      }
-    } catch (error) {
-      alert("Password reset failed");
-    }
+  return (
+    <section className="projects-containr">
+      {projects && projects.length > 0 ? (
+        projects.map((project, index) => {
+          return (
+            <div className="project" key={index}>
+              <section className="image-container"></section>
+              <section className="project-actions">
+                <div class="card-body">
+                  <h5 class="card-title">{project.name}</h5>
+                  <img
+                    alt="avat"
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                    className="avatar avatar-lg rounded-circle"
+                    data-title="Peggy Brown"
+                    data-toggle="tooltip"
+                  />
+                  <img
+                    alt="avat"
+                    src="https://media.licdn.com/dms/image/C4E03AQFn8-FJxE-O6Q/profile-displayphoto-shrink_400_400/0/1649963399162?e=1688601600&v=beta&t=jQ2QietUvIXkKxEfhFl4DVuVEl7WEt-Jr8V-QKbzYus"
+                    className="avatar avatar-lg rounded-circle"
+                    data-title="Peggy Brown"
+                    data-toggle="tooltip"
+                  />
+                  <img
+                    alt="avat"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2zpdkcmaH-9kmfHQYEQkd7KmgJpAwTOXBA&usqp=CAU"
+                    className="avatar avatar-lg rounded-circle"
+                    data-title="Peggy Brown"
+                    data-toggle="tooltip"
+                  />
+                  <p class="card-text">{project.description}</p>
+                 <button
+                    href="#"
+                    class="btn btn-primary"
+                    onClick={() => viewProject(project.id)}
+                  >
+                    View Details
+                 </button>
+                </div>
+              </section>
+            </div>
+          );
+        })
+      ) : (
+        <h1>No projects found.</h1>
+      )}
+    </section>
+  );
+}
+
+const Project = ({ projectData }) => {
+  // Get the navigate function from useNavigate
+  const navigate = useNavigate();
+
+  // Function to handle "Add Project" button click
+  const handleAddProject = () => {
+    navigate("/add-project");
   };
 
   return (
     <>
-      <h1 className="login-heading">Login</h1>
-
       <Sidebar />
-      <div className="login">
-        <form className="login-form">
-          <label className="login-label">Email:</label>
-          <input
-            className="login-input"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          {!resetPassword && (
-            <>
-              <label className="login-label">Password:</label>
-              <input
-                className="login-input"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <br />
-            </>
-          )}
-          {resetPassword ? (
-            <>
-              <label className="login-label">Enter Role:</label>
-              <input
-                className="login-input"
-                type="password"
-                value={type}
-                onChange={(e) => setNewPassword(e.target.value)}
-              />
-              <br />
-              {/* <label className="login-label">Confirm Password:</label>
-            <input
-              className="login-input"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            /> */}
-              <br />
-              <button
-                className="login-button"
-                type="button"
-                onClick={handleResetPassword}
-              >
-                Reset Password
-              </button>
-              <br />
-            </>
-          ) : (
-            <>
-              <button
-                className="login-button"
-                type="button"
-                onClick={handleLogin}
-              >
-                Login
-              </button>
-              <br />
-              <button
-                className="login-button"
-                type="button"
-                onClick={() => setResetPassword(true)}
-              >
-                Forgot Password
-              </button>
-              <br />
-              <label className="login-label">
-                <input
-                  className="login-checkbox"
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={() => setRememberMe(!rememberMe)}
-                />
-                Remember me
-              </label>
-            </>
-          )}
-        </form>
+
+      <div className="project-container">
+        <section className="project-container-header">
+          <h2>All Projects</h2>
+          <button
+            onClick={handleAddProject}
+            className="add-project-button primary"
+          >
+            Add Project
+          </button>
+        </section>
+
+        <ShowProjects />
       </div>
     </>
   );
 };
 
-export default Login;
+export default Project;

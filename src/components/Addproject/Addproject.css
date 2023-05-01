@@ -30,11 +30,16 @@ textarea {
   padding: 1.5rem;
   margin-top: 5px;
 } 
-
+input, button, select, optgroup, textarea {
+    margin: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
 button {
   background-color: #1784bf; 
   color: rgb(0, 0, 0);
-  margin:auto;
+  margin:30px;
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -56,7 +61,7 @@ button {
   flex-direction: column;
   align-items: center;
   width: 30rem;
-  height: 70vh;
+  height: 85vh;
   margin-left: 50rem;
   background-color: #020733;
 

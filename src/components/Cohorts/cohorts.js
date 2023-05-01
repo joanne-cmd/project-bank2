@@ -87,6 +87,27 @@ const Cohorts = () => {
   const handleCloseForm = () => {
     setShowForm(false);
   };
+  const handleDeleteCohort = async (id) => {
+    try {
+      const shouldDelete = window.confirm(
+        "Are you sure you want to delete this cohort?"
+      );
+      if (shouldDelete) {
+        const res = await fetch(`http://localhost:3000/cohorts/${id}`, {
+          method: "DELETE",
+        });
+        if (res.ok) {
+          const newCohorts = cohorts.filter((cohort) => cohort.id !== id);
+          setCohorts(newCohorts);
+        } else {
+          throw new Error("Failed to delete cohort");
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Failed to delete cohort");
+    }
+  };
 
   return (
     <>
@@ -129,8 +150,20 @@ const Cohorts = () => {
                   <td>{cohort.course_id}</td>
                   <td>{cohort.number_of_students}</td>
                   <td>
-                    <button className="delete-button" onClick={() => {}}>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleDeleteCohort(cohort.id)}
+                    >
                       Delete
+                    </button>
+                    <button
+                      className="update-button"
+                      onClick={() => {
+                        setSelectedCohortIndex(index);
+                        setShowForm(true);
+                      }}
+                    >
+                      Update
                     </button>
                   </td>
                 </tr>

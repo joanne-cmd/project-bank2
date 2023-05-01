@@ -29,14 +29,16 @@ const ProjectDetails = () => {
           {projectData.github_link}
         </p>
         <p className="project-details__content__item">
-          <Link
-            to={{
-              pathname: "/projects",
-            }}
-            className="project-details__go-back"
-          >
-            Go Back to Projects
-          </Link>
+          <button>
+            <Link
+              to={{
+                pathname: "/projects",
+              }}
+              className="project-details__go-back"
+            >
+              Go Back to Projects
+            </Link>
+          </button>
         </p>
       </div>
     </div>

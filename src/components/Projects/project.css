@@ -1,146 +1,118 @@
+/* Set up some global styles */
+:root {
+  --primary-color: #0077b6;
+  --secondary-color: #ebebeb;
+  --text-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .project-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20pc;
-  }
-  
-  .project-container-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 12px;
-  }
-  
-  .project-container-header button {
-    display: block;
-    width: fit-content !important;
-    height: fit-content !important;
-    margin: 0 !important;
-  }
-  
-  .projects-container {
-    display: flex;
-    position: relative;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 16px;
-    margin: 0 auto;
-    justify-content: space-evenly;
-  }
-  
-  .image-container {
-    position: relative;
-    width: 60%;
-  }
-  
-  .image-container img {
-    position: relative;
-    width: 100%;
-    border-radius: 4px;
-  }
-  
-  .project {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .project-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: fit-content;
-    flex-wrap: wrap;
-  }
-  
-  .project-actions button,
-  .project-actions span {
-    display: block;
-    width: fit-content !important;
-    height: fit-content !important;
-    margin: 0 !important;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 8px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .project-list {
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .project-list h2 {
-    margin-bottom: 10px;
-  }
-  
-  .project-list ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .project-list li {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border-radius: 5px;
-  }
-  
-  .project-list li h3 {
-    margin: 0;
-  }
-  
-  .project-list li p {
-    margin: 0;
-  }
-  
-  .view-more-button {
-    margin-top: 10px;
-    background-color:#1784bf;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .project-container-header h1 {
-    
-    font-weight: bold;
-  }
-  
-  .project-container-header button {
-    background-color: #1784bf;
-    color:#fff;
-    border: none;
-    padding: 10px 20px;
-    text-align: right;
-    right: 0;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-bottom: 10px;
-    position: fixed;
-    right: 0;
-    text-align: right;
-    margin-right: 20px;
-   font-weight: 800;
-   border-radius: 10px;
-  
-  }
-  
+  margin-left: 500px;
+  padding: 40px;
+}
+
+.project-container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.project-container-header h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.add-project-button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-project-button:hover {
+  background-color: #005580;
+}
+
+/* Style the projects container */
+.projects-containr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.project {
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 32%;
+}
+
+.project .image-container {
+  background-color: #ebebeb;
+  height: 200px;
+}
+
+.project .project-actions {
+  padding: 20px;
+}
+.avatar 
+{ width: 30px;
+    height: 30px;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+.project .project-actions h5 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project .project-actions p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.project .project-actions .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project .project-actions .avatar {
+  margin-bottom: 10px;
+}
+
+.project .project-actions button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.project .project-actions button:hover {
+  background-color: #474747;
+}

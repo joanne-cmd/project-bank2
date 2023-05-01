@@ -39,7 +39,6 @@
   }
   
   .option-one:hover {
-    background-color: peachpuff;
     color: black;
   }
   
@@ -55,8 +54,10 @@
     }
     
     .option-one {
-      margin-left: 75px;
-      margin-right: 75px;
+      margin-left: 600px;
+      font-weight: 600;
+      font-style: italic;
+      cursor: pointer;
     }
     
     .logout {

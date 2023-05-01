@@ -12,29 +12,30 @@ const Login = () => {
   const [resetPassword, setResetPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
-  const handleLogin = async () => {
-    // Extract the domain from the email address
-    const domain = email.split("@")[1];
+  const navigate = useNavigate();
 
+  const handleLogin = async () => {
+    // const domain = email.split("@")[1];
     console.log(email);
     console.log(password);
-
     try {
-      // Make HTTP request to backend for login
       const response = await axios.post("/login", {
         email,
         password,
       });
       console.log(response.data.email.split("@")[1]);
-
       if (response.data.email.split("@")[1] === "student.moringaschool.com") {
-        alert("Login successful"); // Show success message
-        // Redirect to dashboard based on domain
-        window.location.href = "/projects";
+        alert("Login successful");
+        localStorage.setItem("user", response.data.email);
+        window.location.href = "/";
       } else if (
         response.data.email.split("@")[1] === "admin.moringaschool.com"
       ) {
-        window.location.href = "/cohorts";
+        alert("Login successful");
+        localStorage.setItem("user", response.data.email);
+        // console.log("admin ", user);
+
+        window.location.href = "/";
       } else {
         alert("Login failed");
       }
@@ -47,8 +48,7 @@ const Login = () => {
     console.log(email);
     console.log(type);
     try {
-      // Make HTTP request to backend for password reset
-      const response = await axios.post("/password_reset", {
+      const response = await axios.post("/login", {
         email,
         type,
       });
@@ -102,42 +102,6 @@ const Login = () => {
               />
               <br />
               {/* <label className="login-label">Confirm Password:</label>
-      
-      <Sidebar/>
-      <div className="login">   
-      <form className="login-form">
-        <label className="login-label">Email:</label>
-        <input
-          className="login-input"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        {!resetPassword && (
-          <>
-            <label className="login-label">Password:</label>
-            <input
-              className="login-input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <br />
-          </>
-        )}
-        {resetPassword ? (
-          <>
-            <label className="login-label">New Password:</label>
-            <input
-              className="login-input"
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
-            <br />
-            <label className="login-label">Confirm Password:</label>
-
             <input
               className="login-input"
               type="password"

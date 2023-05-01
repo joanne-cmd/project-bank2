@@ -1,6 +1,7 @@
  .course__details{
     border-collapse: collapse;
-    width: 100%;
+    width: 70%;
+    margin-left: 400px;
     counter-reset: step;
   }
   
@@ -103,7 +104,7 @@
   }
   
   .delete-button {
-    background-color:#E4C2C2;
+    background-color:red;
     color: #fff;
     font-weight: 500;
     border: none;

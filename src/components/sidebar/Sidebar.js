@@ -16,8 +16,8 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         <li className="options">
-          <NavLink to="/dashboard">
-            <FontAwesomeIcon icon={faChartLine} /> <span>Dashboard</span>
+          <NavLink to="/">
+            <FontAwesomeIcon icon={faChartLine} /> <span>Home</span>
           </NavLink>
         </li>
         <li className="options">
@@ -28,6 +28,11 @@ const Sidebar = () => {
         <li className="options">
           <NavLink to="/projects">
             <FontAwesomeIcon icon={faBriefcase} /> <span>Projects</span>
+          </NavLink>
+        </li>
+        <li className="options">
+          <NavLink to="/cohorts">
+            <FontAwesomeIcon icon={faBriefcase} /> <span>Cohorts</span>
           </NavLink>
         </li>
         <li className="options">

@@ -3,9 +3,16 @@ import Sidebar from "../sidebar/Sidebar";
 import Course from "../course/Course";
 import Footer from "../footer/Footer";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header({ currentUser }) {
   console.log(currentUser);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // perform logout logic here
+    navigate("/logout"); // navigate to the logout page
+  };
 
   return (
     <>
@@ -17,12 +24,10 @@ function Header({ currentUser }) {
         <h2 className="title__h">Pay-Bank</h2>
 
         <div className="header-nav">
-          <span className="option-one"> Home</span>
-          <span className="option-one">About us</span>
           {Array.isArray(currentUser) ? (
-            currentUser.map((user) => (
-              <span className="option-one">Welcome {user.username}</span>
-            ))
+            <span className="option-one" onClick={handleLogout}>
+              Welcome {currentUser[0].username}
+            </span>
           ) : (
             <span className="option-one">Not Logged In</span>
           )}

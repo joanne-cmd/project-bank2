@@ -15,24 +15,47 @@ import FullStack from "./components/FullStack/fullstack";
 import Android from "./components/Android/android";
 import CyberSecurity from "./components/CyberSecurity/cybersecurity";
 import DataScience from "./components/DataScience/datascience";
-
+import Course from "./components/course/Course";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+
   const [currentUser, setCurrentUser] = useState(null);
 
+  console.log(localStorage.getItem("user"));
   useEffect(() => {
-    fetch("/logged_in", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        setCurrentUser(response);
-      });
-  }, []);
+    setUser(localStorage.getItem("user"));
+    if (user) {
+      console.log(user);
+      if (user.split("@")[1] === "student.moringaschool.com") {
+        fetch("/logged_in", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            console.log(response);
+            setCurrentUser(response);
+          });
+      } else {
+        fetch("/logged_in_admin", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            console.log(response);
+            setCurrentUser(response);
+          });
+      }
+    }
+  }, [user]);
   console.log(currentUser);
 
   return (
@@ -40,6 +63,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Header currentUser={currentUser} />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/course" element={<Course />} />
+
         <Route path="/landingpage" element={<Landingpage />} />
         <Route path="/cohorts" element={<Cohorts />} />
         <Route path="/projects" element={<Project />} />

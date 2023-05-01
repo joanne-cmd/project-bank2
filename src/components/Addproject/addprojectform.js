@@ -75,7 +75,6 @@ const ProjectForm = () => {
           <label className="project__label" htmlFor="projectName">
             Project Name
           </label>
-          <label  className="project__label" htmlFor="projectName">Project Name</label>
           <input
             type="text"
             id="projectName"
@@ -103,14 +102,7 @@ const ProjectForm = () => {
             required
           ></textarea>
 
-          <label htmlFor="description">Members</label>
-          <textarea
-            id="members"
-            value={description}
-            placeholder="Members"
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          ></textarea>
+          
     
           <label htmlFor="githubLink">GitHub Link</label>
           <input
@@ -132,9 +124,7 @@ const ProjectForm = () => {
               <option value="Cybersecurity">Cybersecurity</option>
             </select>
           </label>
-          <button className="addnew__project" type="submit">
-            Submit
-          </button>
+          
           <button className="addnew__project" type="submit">Submit</button>
         </form>
       </div>
