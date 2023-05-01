@@ -5,6 +5,10 @@
     height: 100vh;
     background-color: #f2f4ff;
   }
+.title{
+        color: #000;
+
+}
   .sidecontact{
        background-color: rgb(9, 9, 31);
        width: 500px;
@@ -20,10 +24,13 @@
   .sidecontact h1{
       font-weight: 800;
       padding-bottom: 20px;
+      color: #fff;
   }
   .sidecontact p{
       flex-wrap: wrap;
       width: 300px;
+       color: #fff;
+
   }
   .contact__form{
     width: 80%;

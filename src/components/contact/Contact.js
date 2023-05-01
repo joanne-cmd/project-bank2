@@ -32,17 +32,16 @@ function Contact() {
     <>
       <Sidebar />
 
-      <h1 className="title">Contact Us</h1>
+      <h1 className="title">Request to Collaborate</h1>
 
       <div className="contacts">
         <div className="sidecontact">
           <h1>GET IN TOUCH</h1>
           <p>
             We believe that quality education should be accessible to all who
-            want to learn regardless of their financial circumstances. .
+            want to learn regardless of their financial circumstances.
           </p>
-          <span>location</span>
-          <span>email</span>
+          
         </div>
 
         <div className="contact__form">
