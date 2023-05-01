@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Sidebar from "../sidebar/Sidebar";
 import axios from "axios"; // Import axios for making HTTP requests
+=======
+import {  useNavigate } from "react-router-dom";
+import "./login.css"; 
+import Sidebar from "../sidebar/Sidebar";
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -67,6 +73,7 @@ const Login = () => {
   return (
     <>
       <h1 className="login-heading">Login</h1>
+<<<<<<< HEAD
 
       <Sidebar />
       <div className="login">
@@ -102,6 +109,43 @@ const Login = () => {
               />
               <br />
               {/* <label className="login-label">Confirm Password:</label>
+=======
+      
+      <Sidebar/>
+      <div className="login">   
+      <form className="login-form">
+        <label className="login-label">Email:</label>
+        <input
+          className="login-input"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        {!resetPassword && (
+          <>
+            <label className="login-label">Password:</label>
+            <input
+              className="login-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br />
+          </>
+        )}
+        {resetPassword ? (
+          <>
+            <label className="login-label">New Password:</label>
+            <input
+              className="login-input"
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <br />
+            <label className="login-label">Confirm Password:</label>
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
             <input
               className="login-input"
               type="password"

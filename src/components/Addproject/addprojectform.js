@@ -72,9 +72,13 @@ const ProjectForm = () => {
 
       <div className="form-container">
         <form onSubmit={handleSubmit} className="project-form">
+<<<<<<< HEAD
           <label className="project__label" htmlFor="projectName">
             Project Name
           </label>
+=======
+          <label  className="project__label" htmlFor="projectName">Project Name</label>
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
           <input
             type="text"
             id="projectName"
@@ -93,6 +97,7 @@ const ProjectForm = () => {
             required
           ></textarea>
 
+<<<<<<< HEAD
           <label htmlFor="members">Members</label>
           <textarea
             id="members"
@@ -102,6 +107,17 @@ const ProjectForm = () => {
             required
           ></textarea>
 
+=======
+          <label htmlFor="description">Members</label>
+          <textarea
+            id="members"
+            value={description}
+            placeholder="Members"
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          ></textarea>
+          
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
           <label htmlFor="githubLink">GitHub Link</label>
           <input
             type="text"
@@ -122,9 +138,13 @@ const ProjectForm = () => {
               <option value="Cybersecurity">Cybersecurity</option>
             </select>
           </label>
+<<<<<<< HEAD
           <button className="addnew__project" type="submit">
             Submit
           </button>
+=======
+          <button className="addnew__project" type="submit">Submit</button>
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
         </form>
       </div>
     </>

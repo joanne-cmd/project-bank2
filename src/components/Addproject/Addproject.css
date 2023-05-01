@@ -1,10 +1,66 @@
 
+<<<<<<< HEAD
 h2{
   align-content: center;
+=======
+.add-h{
+   align-content: center;
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
   margin-left: 60rem;
 
 }
 
+<<<<<<< HEAD
+.project-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  height: 70vh;
+  margin-left: 50rem;
+  background-color: #020733;
+=======
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
+
+.project__label{
+  margin-top: 10px;
+  color: #fff;
+}
+
+<<<<<<< HEAD
+ input,
+=======
+input,
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
+textarea {
+  width: 70%;
+  padding: 1.5rem;
+  margin-top: 5px;
+} 
+
+<<<<<<< HEAD
+button {
+  background-color: #1784bf; 
+  color: rgb(0, 0, 0);
+  margin:auto;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+} */  */
+=======
+>>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
+.form-container {
+    padding: 20px;
+    width: 100%;
+    background-color: #ffffff; 
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    
+}
+.course-select{
+  width: 10rem;
+  
+}
 .project-form {
   display: flex;
   flex-direction: column;
@@ -14,37 +70,4 @@ h2{
   margin-left: 50rem;
   background-color: #020733;
 
-}
-
-label {
-  margin-top: 10px;
-  color: #fff;
-}
-
- input,
-textarea {
-  width: 70%;
-  padding: 1.5rem;
-  margin-top: 5px;
-} 
-
-button {
-  background-color: #1784bf; 
-  color: rgb(0, 0, 0);
-  margin:auto;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-} */  */
-.form-container {
-    padding: 20px;
-    width: 100%;
-    /* background-color: #ffffff; */
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    
-}
-.course-select{
-  width: 10rem;
-  
 }
