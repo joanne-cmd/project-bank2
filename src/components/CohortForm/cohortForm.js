@@ -30,7 +30,6 @@ const CohortForm = (props) => {
         break;
     }
 
-<<<<<<< HEAD
     if (url !== "") {
       fetch(url, {
         method: "POST",
@@ -108,38 +107,6 @@ const CohortForm = (props) => {
       </div>
     </>
   );
-=======
-	return (
-		<>
-			<h2 className='add__title'>ADD COHORT</h2>
-			<div className='cohort__form'>
-			
-			<form onSubmit={ handleSubmit } className='cohort-form'>
-				<Input className="name__text" labelTxt={ 'Name' } id='name' type={ 'text' } onChangeFn={ (event) => setName(event.target.value) } value={ name } required={ true } />
-				<br />
-				<label className='courses__label'>
-					<select value={ course } onChange={ (e) => setCourse(e.target.value) } required className='select-course'>
-						<option value="">SELECT A COURSE</option>
-						<option  value="Android Development">Android Development</option>
-						<option value="Full-Stack Development">
-							Full-Stack Development
-						</option>
-						<option value="Data Science">Data Science</option>
-						<option value="Cybersecurity">Cybersecurity</option>
-					</select>
-				</label>
-				<br />
-				<Input className="input__details" labelTxt={ 'Number Of Students' } id='number' type={ 'number' } onChangeFn={ (event) => setNumberOfStudents(event.target.value) } value={ numberOfStudents } required={ true } />
-				<br />
-				<button type="submit" className='cohortButton__submit'>Submit</button>
-				<button type="button" onClick={ handleCancel } className='cohortButton__cancel'>Cancel</button>
-				<br />
-			</form>
-		</div>
-		</>
-		
-	);
->>>>>>> 5dbd73e7c8581aa0af9a8e61b6e96235ce57abaa
 };
 
 export default CohortForm;
