@@ -1,103 +1,152 @@
-import React, { useEffect, useState } from 'react';
-import CohortForm from '../CohortForm/cohortForm';
-import './cohort.css';
+import React, { useEffect, useState } from "react";
+import CohortForm from "../CohortForm/cohortForm";
+import "./cohort.css";
 import Sidebar from "../sidebar/Sidebar";
 
-function ShowCohorts ({ cohorts, handleDeleteCohort }) {
-	return <>
-		{ cohorts.map((cohort, index) => (
-			<tr key={ index }>
-				<td>{ cohort.name }</td>
-				<td>{ cohort.course }</td>
-				<td>{ cohort.numberOfStudents }</td>
-				<td>
-					<button className="delete-button" onClick={ () => handleDeleteCohort(index) }>Delete</button>
-				</td>
-			</tr>
-		)) }
-	</>
-}
-
 const Cohorts = () => {
-	const [cohorts, setCohorts] = useState(undefined);
-	const [showForm, setShowForm] = useState(false);
-	const [selectedCohortIndex, setSelectedCohortIndex] = useState(-1);
+  const [cohorts, setCohorts] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [selectedCohortIndex, setSelectedCohortIndex] = useState(-1);
 
-	const handleAddCohort = (newCohort) => {
-		setCohorts([...cohorts, newCohort]);
-		setShowForm(false);
-	};
+  useEffect(() => {
+    fetchCohorts();
+  }, []);
 
-	const handleDeleteCohort = (cohortIndex) => {
-		const shouldDelete = window.confirm('Are you sure you want to delete this cohort?');
-		if (shouldDelete) {
-			const newCohorts = [...cohorts];
-			newCohorts.splice(cohortIndex, 1);
-			setCohorts(newCohorts);
-		}
-	};
+  const fetchCohorts = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/cohorts");
+      const data = await res.json();
+      setCohorts(data);
+    } catch (err) {
+      alert(err);
+    }
+  };
 
-	function ShowCohorts () {
-		fetch('http://localhost:8000/cohorts')
-			.then((res) => res.json())
-			.then((cohorts) => setCohorts(cohorts))
-			.catch((err) => alert(err));
-	}
+  // let url = '';
+  // switch (cohorts.course_id) {
+  //   case '1':
+  //     url = 'Android Development';
+  //     break;
+  //   case '2':
+  //     url = 'Full-Stack Development';
+  //     break;
+  //   case '3':
+  //     url = ';
+  //     break;
+  //   case 'Cybersecurity':
+  //     url = 'http://127.0.0.1:3000/courses/4/projects';
+  //     break;
+  //   default:
+  //     break;
+  // }
 
-	useEffect(() => {
-		ShowCohorts();
-		return;
-	}, [])
+  const handleAddCohort = (newCohort) => {
+    setCohorts([...cohorts, newCohort]);
+    setShowForm(false);
+  };
 
-	const handleShowForm = () => {
-		setSelectedCohortIndex(-1);
-		setShowForm(true);
-	};
+  // const handleDeleteCohort = (cohortIndex) => {
+  //   const shouldDelete = window.confirm('Are you sure you want to delete this cohort?');
+  //   if (shouldDelete) {
+  //     const newCohorts = [...cohorts];
+  //     newCohorts.splice(cohortIndex, 1);
+  //     setCohorts(newCohorts);
+  //   }
+  // };
 
-	const handleCloseForm = () => {
-		setShowForm(false);
-	};
+  // const handleDeleteCohort = (id) => {
+  //   const shouldDelete = window.confirm('Are you sure you want to delete this cohort?');
+  //   // if (shouldDelete) {
+  //   //   const cohortToDelete = cohorts[cohortIndex];
 
-	return (
-		<>
-			<Sidebar />
-			<div className='cohorts'>
-				<section className='cohortsHead'>
-					<h1 className='title__cohorts'>COHORTS</h1>
-					<button onClick={ handleShowForm } className='primary__add'>ADD COHORT</button>
-				</section>
+  //     // Make a DELETE request to the server to delete the cohort
+  //     fetch(`http://localhost/3000/courses/${id}/cohorts`, {
+  //       method: 'DELETE'
+  //     })
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error('Failed to delete cohort');
+  //       }
 
-				{ showForm && (
-					<div className="popup">
-						<div className="popup-inner">
-							<CohortForm
-								onClose={ handleCloseForm }
-								onAdd={ handleAddCohort }
-								onUpdate={ setCohorts }
-								selectedCohort={ cohorts[selectedCohortIndex] }
-							/>
-						</div>
-					</div>
-				) }
-				<table className='course__details'>
-					<thead>
-						<tr>
-							<th>NAME</th>
-							<th>COURSE</th>
-							<th>NUMBER OF STUDENT</th>
-							<th>ACTION</th>
-						</tr>
-					</thead>
+  //       // If the cohort was successfully deleted, update the state
+  //       //const newCohorts = cohorts.filter(cohort => cohort.id !== cohortToDelete.id);
+  //       //setCohorts(newCohorts);
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //       alert('Failed to delete cohort');
+  //     });
 
-					{ cohorts && cohorts.length > 0 ?
-						<tbody>
-							<ShowCohorts cohorts={ cohorts } handleDeleteCohort={ handleDeleteCohort } />
-						</tbody> : <h1 style={ { width: 100 + '%', textAlign: 'center', position: 'absolute' } }>No cohorts found</h1> }
-				</table>
-			</div>
-		</>
+  // };
 
-	);
+  const handleShowForm = () => {
+    setSelectedCohortIndex(-1);
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
+
+  return (
+    <>
+      <Sidebar />
+      <div className="cohorts">
+        <section className="cohortsHead">
+          <h1 className="title__cohorts">COHORTS</h1>
+          <button onClick={handleShowForm} className="primary__add">
+            ADD COHORT
+          </button>
+        </section>
+
+        {showForm && (
+          <div className="popup">
+            <div className="popup-inner">
+              <CohortForm
+                onClose={handleCloseForm}
+                onAdd={handleAddCohort}
+                onUpdate={setCohorts}
+                selectedCohort={cohorts[selectedCohortIndex]}
+              />
+            </div>
+          </div>
+        )}
+
+        {cohorts.length > 0 ? (
+          <table className="course__details">
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>COURSE</th>
+                <th>NUMBER OF STUDENT</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cohorts.map((cohort, index) => (
+                <tr key={index}>
+                  <td>{cohort.name}</td>
+                  <td>{cohort.course_id}</td>
+                  <td>{cohort.number_of_students}</td>
+                  <td>
+                    <button className="delete-button" onClick={() => {}}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <h1
+            style={{ width: "100%", textAlign: "center", position: "absolute" }}
+          >
+            No cohorts found
+          </h1>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default Cohorts;

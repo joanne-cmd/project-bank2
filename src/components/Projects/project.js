@@ -1,90 +1,123 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
-import './project.css';
+import "./project.css";
+import Sidebar from "../sidebar/Sidebar";
+import ProjectDetails from "../Projectdets/projectdets";
 
-function ShowProjects () {
-	// State to store added projects
-	const [projects, setProjects] = useState(undefined);
+function ShowProjects() {
+  // State to store added projects
+  const [projects, setProjects] = useState(undefined);
+  const [projectData, setProjectData] = useState(null);
 
-	function showProjects () {
-		fetch('http://localhost:8000/projects')
-			.then((res) => res.json())
-			.then((projects) => setProjects(projects))
-			.catch((err) => alert('unable to get projects.'));
-	}
+  const navigate = useNavigate();
 
-	useEffect(() => {
-		showProjects();
-		return;
-	}, []);
+  function showProjects() {
+    fetch("/projects")
+      .then((res) => res.json())
+      .then((projects) => setProjects(projects))
+      .catch((err) => alert("unable to get projects."));
+  }
 
-	console.log(projects);
+  // function viewProject (id) {
+  // 	fetch(`http://localhost/3000/projects/${id}`)
+  // 		.then((res) => res.json())
+  // 		.then((projectData) => projectData)
+  // }
 
-	return <section className="projects-container">
-		{ projects && projects.length > 0 ? projects.map((project, index) => {
-			return <div className="project" key={ index }>
-				<section className="image-container">
-					<img src={ process.env.PUBLIC_URL + '/projectImage.jpg' } alt='project placeholder' />
-				</section>
-				<section className="project-actions">
-					<span>{ project.title }</span>
-					<button className='secondary'>view project</button>
-				</section>
-			</div>
-		}) : <h1>No projects found.</h1> }
-	</section>
+  function viewProject(id) {
+    fetch(`/projects/${id}`)
+      .then((res) => res.json())
+      .then((projectData) => {
+        console.log(projectData);
+        setProjectData(projectData);
+        navigate("/project-dets", { state: { projectData } });
+      });
+  }
+
+  useEffect(() => {
+    showProjects();
+    return;
+  }, []);
+
+  return (
+    <section className="projects-containr">
+      {projects && projects.length > 0 ? (
+        projects.map((project, index) => {
+          return (
+            <div className="project" key={index}>
+              <section className="image-container"></section>
+              <section className="project-actions">
+                <div class="card-body">
+                  <h5 class="card-title">{project.name}</h5>
+                  <img
+                    alt="Image"
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                    class="avatar avatar-lg rounded-circle"
+                    data-title="Peggy Brown"
+                    data-toggle="tooltip"
+                  />
+                  <img
+                    alt="Image"
+                    src="https://media.licdn.com/dms/image/C4E03AQFn8-FJxE-O6Q/profile-displayphoto-shrink_400_400/0/1649963399162?e=1688601600&v=beta&t=jQ2QietUvIXkKxEfhFl4DVuVEl7WEt-Jr8V-QKbzYus"
+                    class="avatar avatar-lg rounded-circle"
+                    data-title="Peggy Brown"
+                    data-toggle="tooltip"
+                  />
+                  <img
+                    alt="Image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2zpdkcmaH-9kmfHQYEQkd7KmgJpAwTOXBA&usqp=CAU"
+                    class="avatar avatar-lg rounded-circle"
+                    data-title="Peggy Brown"
+                    data-toggle="tooltip"
+                  />
+                  <p class="card-text">{project.description}</p>
+                  <a
+                    href="#"
+                    class="btn btn-primary"
+                    onClick={() => viewProject(project.id)}
+                  >
+                    View Details
+                  </a>
+                </div>
+              </section>
+            </div>
+          );
+        })
+      ) : (
+        <h1>No projects found.</h1>
+      )}
+    </section>
+  );
 }
 
-const Project = () => {
-	// Get the navigate function from useNavigate
-	const navigate = useNavigate();
+const Project = ({ projectData }) => {
+  // Get the navigate function from useNavigate
+  const navigate = useNavigate();
 
-	//   Function to handle form submission
-	const handleSubmit = (event) => {
-		// Add logic to handle form submission
-		// You can perform any action here, such as adding the project to the list of projects, making API calls, etc.
-		event.preventDefault();
-		// For demo purposes, we are just logging the project details to the console
-		console.log("Project Title: ", event.target.title.value);
-		console.log("Project Description: ", event.target.description.value);
-		// Add the project to the list of projects
-		// setProjects([
-		// 	...projects,
-		// 	{
-		// 		title: event.target.title.value,
-		// 		description: event.target.description.value,
-		// 		id: new Date().getTime(), // generate a unique id for the project
-		// 	},
-		// ]);
-		// Clear the form fields
-		event.target.title.value = "";
-		event.target.description.value = "";
-	};
+  // Function to handle "Add Project" button click
+  const handleAddProject = () => {
+    navigate("/add-project");
+  };
 
-	// Function to handle "View More" button click
-	const handleViewMore = (projectId) => {
-		// Navigate to project details page with projectId
-		navigate("/project/" + projectId);
-	};
+  return (
+    <>
+      <Sidebar />
 
-	// Function to handle "Add Project" button click
-	const handleAddProject = () => {
-		// Add logic to handle "Add Project" button click
-		// You can perform any action here, such as displaying a modal, navigating to a different page, etc.
-		navigate("/add-project");
-	};
+      <div className="project-container">
+        <section className="project-container-header">
+          <h2>All Projects</h2>
+          <button
+            onClick={handleAddProject}
+            className="add-project-button primary"
+          >
+            Add Project
+          </button>
+        </section>
 
-	return (
-		<div className="project-container">
-			<section className="project-container-header">
-				<h2>Projects</h2>
-				<button onClick={ handleAddProject } className="add-project-button primary">
-					Add Project
-				</button>
-			</section>
-			<ShowProjects />
-		</div>
-	);
+        <ShowProjects />
+      </div>
+    </>
+  );
 };
 
 export default Project;

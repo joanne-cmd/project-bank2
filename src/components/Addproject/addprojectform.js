@@ -1,41 +1,64 @@
 import React, { useState } from "react";
-import "./Addproject.css"; 
+import "./Addproject.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+
 import Sidebar from "../sidebar/Sidebar";
 const ProjectForm = () => {
-  const [projectName, setProjectName] = useState("");
+  const [name, setProjectName] = useState("");
   const [description, setDescription] = useState("");
-  const [githubLink, setGithubLink] = useState("");
+  const [github_link, setGithubLink] = useState("");
   const [course, setCourse] = useState("");
-
-
+  const [members, setMembers] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const projectData = {
-      projectName,
+      name,
       description,
-      githubLink,
-      course,
+      github_link,
+      members,
     };
 
-    try {
-      const response = await fetch("http://localhost:3000/projects", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(projectData),
-      });
+    let url = "";
+    switch (course) {
+      case "Android Development":
+        url = "http://127.0.0.1:3000/courses/1/projects";
+        break;
+      case "Full-Stack Development":
+        url = "http://127.0.0.1:3000/courses/2/projects";
+        break;
+      case "Data Science":
+        url = "http://127.0.0.1:3000/courses/4/projects";
+        break;
+      case "Cybersecurity":
+        url = "http://127.0.0.1:3000/courses/3/projects";
+        break;
+      default:
+        break;
+    }
 
-      if (response.ok) {
-        console.log("Project data submitted successfully:", projectData);
-        // Clear form inputs
-        setProjectName("");
-        setDescription("");
-        setGithubLink("");
-        setCourse("");
-      } else {
-        console.error("Failed to submit project data:", response.status);
+    try {
+      if (url !== "") {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(projectData),
+        });
+
+        if (response.ok) {
+          console.log("Project data submitted successfully:", projectData);
+          navigate("/projects");
+          // Clear form inputs
+          setProjectName("");
+          setDescription("");
+          setGithubLink("");
+          setCourse("");
+        } else {
+          console.error("Failed to submit project data:", response.status);
+        }
       }
     } catch (error) {
       console.error("Failed to submit project data:", error);
@@ -49,12 +72,14 @@ const ProjectForm = () => {
 
       <div className="form-container">
         <form onSubmit={handleSubmit} className="project-form">
-          <label htmlFor="projectName">Project Name</label>
+          <label className="project__label" htmlFor="projectName">
+            Project Name
+          </label>
           <input
             type="text"
             id="projectName"
             placeholder="Project Name"
-            value={projectName}
+            value={name}
             onChange={(e) => setProjectName(e.target.value)}
             required
           />
@@ -67,12 +92,22 @@ const ProjectForm = () => {
             onChange={(e) => setDescription(e.target.value)}
             required
           ></textarea>
+
+          <label htmlFor="members">Members</label>
+          <textarea
+            id="members"
+            value={members}
+            placeholder="Members"
+            onChange={(e) => setMembers(e.target.value)}
+            required
+          ></textarea>
+
           <label htmlFor="githubLink">GitHub Link</label>
           <input
             type="text"
             id="githubLink"
             placeholder="githubLink"
-            value={githubLink}
+            value={github_link}
             onChange={(e) => setGithubLink(e.target.value)}
           />
 
@@ -87,7 +122,9 @@ const ProjectForm = () => {
               <option value="Cybersecurity">Cybersecurity</option>
             </select>
           </label>
-          <button type="submit">Submit</button>
+          <button className="addnew__project" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </>

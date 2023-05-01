@@ -1,48 +1,44 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ProjectDetails = ({ projectId }) => {
-  const [projectData, setProjectData] = useState(null);
+import "./projectdets.css";
 
-  useEffect(() => {
-    const fetchProjectDetails = async () => {
-      try {
-        const response = await fetch(
-          "http://localhost:3000/api/projects/" + projectId
-        ); // Update fetch URL with your Rails backend URL
-        if (response.ok) {
-          const data = await response.json();
-          setProjectData(data);
-        } else {
-          throw new Error("Failed to fetch project details");
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchProjectDetails();
-  }, [projectId]);
-
-  if (!projectData) {
-    return <div>Loading project details...</div>;
-  }
+const ProjectDetails = () => {
+  const location = useLocation();
+  const projectData = location.state?.projectData;
 
   return (
-    
-    <div>
-      <h2>Project Details</h2>
-      <p>Project Name: {projectData.projectName}</p>
-      <p>Description: {projectData.description}</p>
-      <p>Owner: {projectData.owner}</p>
-      <p>Members:</p>
-      <ul>
-        {projectData.members.map((member, index) => (
-          <li key={index}>
-            Name: {member.name}, Email: {member.email}
-          </li>
-        ))}
-      </ul>
-      <p>GitHub Link: {projectData.githubLink}</p>
-      <p>Course: {projectData.course}</p>
+    <div className="project-details">
+      <h2 className="project-details__heading">Project Details</h2>
+      <div className="project-details__content">
+        <p className="project-details__content__item">
+          <span className="project-details__content__label">Project Name:</span>{" "}
+          {projectData.name}
+        </p>
+        <p className="project-details__content__item">
+          <span className="project-details__content__label">Description:</span>{" "}
+          {projectData.description}
+        </p>
+        <p className="project-details__content__item">
+          <span className="project-details__content__label">Members:</span>{" "}
+          {projectData.members}
+        </p>
+        <p className="project-details__content__item">
+          <span className="project-details__content__label">GitHub Link:</span>{" "}
+          {projectData.github_link}
+        </p>
+        <p className="project-details__content__item">
+          <Link
+            to={{
+              pathname: "/projects",
+            }}
+            className="project-details__go-back"
+          >
+            Go Back to Projects
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
