@@ -1,6 +1,8 @@
 # Project Tracking System
 
 This is a project tracking system that allows students to add new projects, update existing projects, and view their project history.
+![Screenshot (148)](https://user-images.githubusercontent.com/117865031/235600787-b3d51b0f-2208-4228-8434-9c7db80b590d.png)
+
 
 ## Features
 
