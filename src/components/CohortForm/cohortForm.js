@@ -45,10 +45,11 @@ const CohortForm = (props) => {
     }
   };
 
-  const handleCancel = () => {
-    props.onClose();
-  };
-
+   const handleCancel = () => {
+     if (typeof props.onClose === "function") {
+       props.onClose();
+     }
+   };
   return (
     <>
       <h2 className="add__title">ADD COHORT</h2>
