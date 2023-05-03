@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import CohortForm from "../CohortForm/cohortForm";
 import "./cohort.css";
-<<<<<<< HEAD
 import AdminSidebar from "./../Admin/adminsidebar";
 import Header from "../student/Header";
-=======
-import Sidebar from "../sidebar/Sidebar";
 import { useNavigate } from "react-router-dom";
 
->>>>>>> 4b81a9decc054b377b12e01dc6783a05b48d48df
 const Cohorts = () => {
   const [cohorts, setCohorts] = useState([]);
   const [showForm, setShowForm] = useState(false);

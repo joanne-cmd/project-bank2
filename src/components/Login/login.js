@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import "./login.css";
-=======
-import {  useNavigate } from "react-router-dom";
-import "./login.css"; 
-import Sidebar from "../sidebar/Sidebar";
->>>>>>> 4b81a9decc054b377b12e01dc6783a05b48d48df
+
 import axios from "axios"; // Import axios for making HTTP requests
 
 const Login = () => {
@@ -34,7 +29,6 @@ const Login = () => {
         password,
       });
       console.log(response.data.email.split("@")[1]);
-<<<<<<< HEAD
       if (response.data.email.split("@")[1] === "student.moringaschool.com") {
         alert("Login successful");
         localStorage.setItem("user", response.data.email);
@@ -47,15 +41,7 @@ const Login = () => {
         // console.log("admin ", user);
 
         window.location.href = "/cohorts"
-=======
 
-      if (response.data.email.split("@")[1] === "student.moringaschool.com") {
-        alert("Login successful"); // Show success message
-        // Redirect to dashboard based on domain
-        window.location.href = "/projects";
-      } else if (response.data.email.split("@")[1] === "admin.moringaschool.com") {
-        window.location.href = "/cohorts";
->>>>>>> 4b81a9decc054b377b12e01dc6783a05b48d48df
       } else {
         alert("Login failed");
       }
@@ -94,7 +80,6 @@ const Login = () => {
   return (
     <>
       <h1 className="login-heading">Login</h1>
-<<<<<<< HEAD
       <div className="login">
         <form className="login-form">
           <label className="login-label">Email:</label>
@@ -127,50 +112,7 @@ const Login = () => {
                 onChange={(e) => setNewPassword(e.target.value)}
               />
               <br />
-              {/* <label className="login-label">Confirm Password:</label>
-=======
       
-      <Sidebar/>
-      <div className="login">   
-      <form className="login-form">
-        <label className="login-label">Email:</label>
-        <input
-          className="login-input"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        {!resetPassword && (
-          <>
-            <label className="login-label">Password:</label>
-            <input
-              className="login-input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <br />
-          </>
-        )}
-        {resetPassword ? (
-          <>
-            <label className="login-label">Enter Role:</label>
-            <input
-              className="login-input"
-              type="password"
-              value={type}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
-            <br />
-            {/* <label className="login-label">Confirm Password:</label>
->>>>>>> 4b81a9decc054b377b12e01dc6783a05b48d48df
-            <input
-              className="login-input"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            /> */}
             <br />
             <button
               className="login-button"

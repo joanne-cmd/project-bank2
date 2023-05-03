@@ -2,7 +2,6 @@ import { BrowserRouter,Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import Header from "./components/student/Header";
-<<<<<<< HEAD
 import Contact from "./components/contact/Contact";
 import Landingpage from "./components/landingpage/landingpage";
 import Project from "./components/Projects/project";
@@ -20,23 +19,7 @@ import Android from "./components/Android/android";
 import CyberSecurity from "./components/CyberSecurity/cybersecurity";
 import DataScience from "./components/DataScience/datascience";
 import Course from "./components/course/Course";
-=======
-import Contact from './components/contact/Contact';
-import Landingpage from './components/landingpage/landingpage';
-import Project from './components/Projects/project';
-import Cohorts from './components/Cohorts/cohorts';
-import Logout from './components/Logout/logout';
-import Login from './components/Login/login';
-import AddProject from './components/Addproject/addprojectform';
-import CohortForm from './components/CohortForm/cohortForm';
-import ProjectDetails from './components/Projectdets/projectdets';
-import FullStack from './components/FullStack/fullstack';
-import Android from './components/Android/android';
-import CyberSecurity from './components/CyberSecurity/cybersecurity';
-import DataScience from './components/DataScience/datascience';
 
-
->>>>>>> 4b81a9decc054b377b12e01dc6783a05b48d48df
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
@@ -82,18 +65,15 @@ function App() {
 
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/cohortform" element={<CohortForm />} />
+        <Route path="/course" element={<Course />} />
+
         <Route path="/fullstack" element={<FullStack />} />
         <Route path="/fullstack" element={<FullStack />} />
         <Route path="/android" element={<Android />} />
         <Route path="/datascience" element={<DataScience />} />
         <Route path="/cybersecurity" element={<CyberSecurity />} />
 
-
-
-
         <Route path="/project-dets" element={<ProjectDetails />} />
-
-
       </Routes>
     </BrowserRouter>
   );
