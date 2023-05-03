@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
-import Sidebar from "../sidebar/Sidebar";
 import axios from "axios"; // Import axios for making HTTP requests
 
 const Login = () => {
@@ -27,7 +26,7 @@ const Login = () => {
       if (response.data.email.split("@")[1] === "student.moringaschool.com") {
         alert("Login successful");
         localStorage.setItem("user", response.data.email);
-        window.location.href = "/";
+        window.location.href = "/course";
       } else if (
         response.data.email.split("@")[1] === "admin.moringaschool.com"
       ) {
@@ -35,7 +34,7 @@ const Login = () => {
         localStorage.setItem("user", response.data.email);
         // console.log("admin ", user);
 
-        window.location.href = "/";
+        window.location.href = "/cohorts"
       } else {
         alert("Login failed");
       }
@@ -67,8 +66,6 @@ const Login = () => {
   return (
     <>
       <h1 className="login-heading">Login</h1>
-
-      <Sidebar />
       <div className="login">
         <form className="login-form">
           <label className="login-label">Email:</label>

@@ -5,6 +5,9 @@ import Header from "./components/student/Header";
 import Contact from "./components/contact/Contact";
 import Landingpage from "./components/landingpage/landingpage";
 import Project from "./components/Projects/project";
+import AdminProject from "./components/Admin/adminproject";
+import AdminContact from "./components/Admin/admincontact";
+
 import Cohorts from "./components/Cohorts/cohorts";
 import Logout from "./components/Logout/logout";
 import Login from "./components/Login/login";
@@ -61,15 +64,22 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Header currentUser={currentUser} />} />
+        <Route path="" element={<Login />} />
+        <Route path="/header" element={<Header currentUser={currentUser} />} />
+
         <Route path="/contact" element={<Contact />} />
         <Route path="/course" element={<Course />} />
 
         <Route path="/landingpage" element={<Landingpage />} />
-        <Route path="/cohorts" element={<Cohorts />} />
+        <Route
+          path="/cohorts"
+          element={<Cohorts currentUser={currentUser} />}
+        />
         <Route path="/projects" element={<Project />} />
+        <Route path="/adminprojects" element={<AdminProject />} />
+        <Route path="/admincontacts" element={<AdminContact />} />
+
         <Route path="/logout" element={<Logout />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/cohortform" element={<CohortForm />} />

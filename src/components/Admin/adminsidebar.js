@@ -9,30 +9,30 @@ import {
   faSignInAlt,
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import "./Sidebar.css";
+import "./adminsidebar.css";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul>
-       
         <li className="options">
-          <NavLink to="/course">
-            <FontAwesomeIcon icon={faBook} /> <span>Courses</span>
+          <NavLink to="/cohorts">
+            <FontAwesomeIcon icon={faChartLine} /> <span>Cohorts</span>
           </NavLink>
         </li>
+        
         <li className="options">
-          <NavLink to="/projects">
+          <NavLink to="/adminprojects">
             <FontAwesomeIcon icon={faBriefcase} /> <span>Projects</span>
           </NavLink>
         </li>
         
         <li className="options">
-          <NavLink to="/contact">
-            <FontAwesomeIcon icon={faEnvelope} /> <span>Messages</span>
+          <NavLink to="/admincontacts">
+            <FontAwesomeIcon icon={faEnvelope} /> <span>Contact</span>
           </NavLink>
         </li>
-        
+      
         <li className="auth-options">
           <NavLink to="/logout">
             <FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span>

@@ -1,7 +1,4 @@
 import "./Header.css";
-import Sidebar from "../sidebar/Sidebar";
-import Course from "../course/Course";
-import Footer from "../footer/Footer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +20,7 @@ function Header({ currentUser }) {
         />
         <h2 className="title__h">Pay-Bank</h2>
 
-        <div className="header-nav">
+        {/* <div className="header-nav">
           {Array.isArray(currentUser) ? (
             <span className="option-one" onClick={handleLogout}>
               Welcome {currentUser[0].username}
@@ -31,12 +28,9 @@ function Header({ currentUser }) {
           ) : (
             <span className="option-one">Not Logged In</span>
           )}
-        </div>
+        </div> */}
       </div>
 
-      <Sidebar />
-      <Course />
-      <Footer />
     </>
   );
 }

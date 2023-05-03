@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
-import "./project.css";
-import Sidebar from "../sidebar/Sidebar";
+import "./adminproject.css";
+import AdminSidebar from "./adminsidebar";
 import ProjectDetails from "../Projectdets/projectdets";
 
 function ShowProjects() {
@@ -71,13 +71,13 @@ function ShowProjects() {
                     data-toggle="tooltip"
                   />
                   <p class="card-text">{project.description}</p>
-                 <button
+                  <button
                     href="#"
                     class="btn btn-primary"
                     onClick={() => viewProject(project.id)}
                   >
                     View Details
-                 </button>
+                  </button>
                 </div>
               </section>
             </div>
@@ -101,7 +101,7 @@ const Project = ({ projectData }) => {
 
   return (
     <>
-      <Sidebar />
+      <AdminSidebar />
 
       <div className="project-container">
         <section className="project-container-header">

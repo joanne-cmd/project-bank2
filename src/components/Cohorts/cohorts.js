@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CohortForm from "../CohortForm/cohortForm";
 import "./cohort.css";
-import Sidebar from "../sidebar/Sidebar";
-
+import AdminSidebar from "./../Admin/adminsidebar";
+import Header from "../student/Header";
 const Cohorts = () => {
   const [cohorts, setCohorts] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -111,7 +111,8 @@ const Cohorts = () => {
 
   return (
     <>
-      <Sidebar />
+      <Header />
+      <AdminSidebar />
       <div className="cohorts">
         <section className="cohortsHead">
           <h1 className="title__cohorts">COHORTS</h1>

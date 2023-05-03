@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Course.css";
+import Header from "../student/Header";
+import Sidebar from "../sidebar/Sidebar";
+import Footer from "../footer/Footer";
+
 function Course() {
   return (
     <>
+      <Header />
+      <Sidebar />
       <h1 className="title__lec"> Courses</h1>
       <div className="course">
         {/* <div><h1>Courses</h1></div>  */}
@@ -66,6 +72,7 @@ function Course() {
           <span className="course_name"> UI UX Design</span>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
