@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { BrowserRouter,Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 import Header from "./components/student/Header";
+<<<<<<< HEAD
 import Contact from "./components/contact/Contact";
 import Landingpage from "./components/landingpage/landingpage";
 import Project from "./components/Projects/project";
@@ -19,47 +20,44 @@ import Android from "./components/Android/android";
 import CyberSecurity from "./components/CyberSecurity/cybersecurity";
 import DataScience from "./components/DataScience/datascience";
 import Course from "./components/course/Course";
+=======
+import Contact from './components/contact/Contact';
+import Landingpage from './components/landingpage/landingpage';
+import Project from './components/Projects/project';
+import Cohorts from './components/Cohorts/cohorts';
+import Logout from './components/Logout/logout';
+import Login from './components/Login/login';
+import AddProject from './components/Addproject/addprojectform';
+import CohortForm from './components/CohortForm/cohortForm';
+import ProjectDetails from './components/Projectdets/projectdets';
+import FullStack from './components/FullStack/fullstack';
+import Android from './components/Android/android';
+import CyberSecurity from './components/CyberSecurity/cybersecurity';
+import DataScience from './components/DataScience/datascience';
+
+
+>>>>>>> 4b81a9decc054b377b12e01dc6783a05b48d48df
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
-
   const [currentUser, setCurrentUser] = useState(null);
-
-  console.log(localStorage.getItem("user"));
+   
+  
   useEffect(() => {
-    setUser(localStorage.getItem("user"));
-    if (user) {
-      console.log(user);
-      if (user.split("@")[1] === "student.moringaschool.com") {
-        fetch("/logged_in", {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((response) => {
-            console.log(response);
-            setCurrentUser(response);
-          });
-      } else {
-        fetch("/logged_in_admin", {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((response) => {
-            console.log(response);
-            setCurrentUser(response);
-          });
-      }
-    }
-  }, [user]);
+    fetch("/logged_in", {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(response => {
+      setCurrentUser(response)
+    })
+  }, [])
   console.log(currentUser);
+
+  
 
   return (
     <BrowserRouter>
@@ -68,8 +66,6 @@ function App() {
         <Route path="/header" element={<Header currentUser={currentUser} />} />
 
         <Route path="/contact" element={<Contact />} />
-        <Route path="/course" element={<Course />} />
-
         <Route path="/landingpage" element={<Landingpage />} />
         <Route
           path="/cohorts"
@@ -92,7 +88,12 @@ function App() {
         <Route path="/datascience" element={<DataScience />} />
         <Route path="/cybersecurity" element={<CyberSecurity />} />
 
+
+
+
         <Route path="/project-dets" element={<ProjectDetails />} />
+
+
       </Routes>
     </BrowserRouter>
   );

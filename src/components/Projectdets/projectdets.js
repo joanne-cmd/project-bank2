@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import "./projectdets.css";
@@ -7,6 +7,24 @@ import "./projectdets.css";
 const ProjectDetails = () => {
   const location = useLocation();
   const projectData = location.state?.projectData;
+
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`courses/${projectData.course_id}/projects/${projectData.id}}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        console.log(`Project ${projectData.id} deleted successfully`);
+        navigate("/projects");
+      } else {
+        console.error(`Failed to delete project ${projectData.id}`, response.status);
+      }
+    } catch (error) {
+      console.error(`Failed to delete project ${projectData.id}`, error);
+    }
+  };
 
   return (
     <div className="project-details">
@@ -39,6 +57,7 @@ const ProjectDetails = () => {
               Go Back to Projects
             </Link>
           </button>
+          <button  className="project-details__delete-button" onClick={() => handleDelete()}>delete</button>
         </p>
       </div>
     </div>
