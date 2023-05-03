@@ -72,12 +72,12 @@ const ProjectForm = () => {
   return (
     <>
       <Sidebar />
-      <h2 className="add-h">Add New Project</h2>
+      <h2 className="add-h">New Project</h2>
 
       <div className="form-container">
         <form onSubmit={handleSubmit} className="project-form">
           <label className="project__label" htmlFor="projectName">
-            Project Name
+          Project Name
           </label>
           <input
             type="text"

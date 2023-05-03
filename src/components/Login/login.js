@@ -56,7 +56,7 @@ const Login = () => {
     try {
       // Make HTTP request to backend for password reset
       const response = await axios.post(
-        "/password_reset",
+        "http://127.0.0.1:3000/password_reset",
         {
           email,
           type,
@@ -79,7 +79,7 @@ const Login = () => {
 
   return (
     <>
-      <h1 className="login-heading">Login</h1>
+      <h1 className="login-heading">Welcome :)</h1>
       <div className="login">
         <form className="login-form">
           <label className="login-label">Email:</label>

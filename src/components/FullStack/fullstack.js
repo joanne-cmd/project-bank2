@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { Link } from "react-router-dom";
 import "./fullstack.css";
 
 function FullStack() {
@@ -32,7 +33,7 @@ function FullStack() {
     <>
       <div className="project-containr">
         <section className="project-container-header">
-          <h2>FullStack Projects</h2>
+          <Link to ='/course'><h2>FullStack Projects</h2></Link>
           <button
             onClick={handleAddProject}
             className="add-project-button primary"

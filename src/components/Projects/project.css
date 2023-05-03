@@ -5,12 +5,12 @@
   --text-color: #333;
 }
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
+} */
 
 .project-container {
   margin-left: 500px;
@@ -60,6 +60,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   width: 32%;
+  
 }
 
 .project .image-container {
@@ -115,4 +116,7 @@
 
 .project .project-actions button:hover {
   background-color: #474747;
+}
+.card_text{
+  width: fit-content;
 }
