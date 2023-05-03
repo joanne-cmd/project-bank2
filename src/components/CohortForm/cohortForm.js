@@ -45,8 +45,7 @@ const CohortForm = (props) => {
         })
         .catch((error) => console.log(error));
 
-        alert("Only adims can add cohorts");
-        navigate("/login");
+        
     }
   };
 
@@ -57,7 +56,7 @@ const CohortForm = (props) => {
    };
   return (
     <>
-      <h2 className="add__title">ADD COHORT</h2>
+      <h2 className="add__title">New COHORT</h2>
       <div className="cohort__form">
         <form onSubmit={handleSubmit} className="cohort-form">
           <Input

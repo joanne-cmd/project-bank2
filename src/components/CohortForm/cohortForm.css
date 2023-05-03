@@ -1,8 +1,8 @@
   .cohort__form {
     display: flex;
    justify-content: center;
-   margin-top: 5pc;
-   margin-left: 10pc;
+   margin-top: 2pc;
+   margin-left: 1pc;
   }
   
   .add__title{
@@ -45,15 +45,21 @@
     cursor: pointer;
     margin-right: 10px;
   }
+  .cohortButton__submit:hover{
+    background-color: black;
+  }
   
   .cohortButton__cancel{
-    background-color:#E4C2C2;
+    background-color:red;
     color: #fff;
     font-weight: 500;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     padding: 10px 20px;
+  }
+  .cohortButton__cancel:hover{
+    background-color: darkred;
   }
   
  

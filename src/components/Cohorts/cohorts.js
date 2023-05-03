@@ -50,15 +50,14 @@ const Cohorts = () => {
         "Are you sure you want to delete this cohort?"
       );
       if (shouldDelete) {
-        const res = await fetch(`http://localhost:3000/cohorts/${id}`, {
+        const res = await fetch(`http://courses/:course_id/cohorts/:id `, {
           method: "DELETE",
         });
         if (res.ok) {
           const newCohorts = cohorts.filter((cohort) => cohort.id !== id);
           setCohorts(newCohorts);
         } else {
-          alert("please login");
-          navigate("/login");
+          
           throw new Error("Failed to delete cohort");
         }
       }

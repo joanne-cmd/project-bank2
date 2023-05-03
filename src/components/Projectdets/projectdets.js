@@ -47,16 +47,9 @@ const ProjectDetails = () => {
           {projectData.github_link}
         </p>
         <p className="project-details__content__item">
-          <button>
-            <Link
-              to={{
-                pathname: "/projects",
-              }}
-              className="project-details__go-back"
-            >
+         <Link to='/projects'> <button  className="project-details__go-back">
               Go Back to Projects
-            </Link>
-          </button>
+          </button></Link>
           <button  className="project-details__delete-button" onClick={() => handleDelete()}>delete</button>
         </p>
       </div>
