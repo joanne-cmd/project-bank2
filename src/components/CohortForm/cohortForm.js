@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./cohortForm.css";
 import Input from "../Form/input";
-
+ import { useNavigate } from "react-router-dom";
 const CohortForm = (props) => {
   const [name, setName] = useState("");
   const [course, setCourse] = useState("");
   const [number_of_students, setNumberOfStudents] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -42,6 +44,9 @@ const CohortForm = (props) => {
           props.onClose();
         })
         .catch((error) => console.log(error));
+
+        alert("Only adims can add cohorts");
+        navigate("/login");
     }
   };
 

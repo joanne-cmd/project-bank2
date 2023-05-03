@@ -9,6 +9,7 @@ const ProjectForm = () => {
   const [github_link, setGithubLink] = useState("");
   const [course, setCourse] = useState("");
   const [members, setMembers] = useState("");
+  const [role, setRole]= useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -18,6 +19,7 @@ const ProjectForm = () => {
       description,
       github_link,
       members,
+      role
     };
 
     let url = "";
@@ -56,8 +58,10 @@ const ProjectForm = () => {
           setDescription("");
           setGithubLink("");
           setCourse("");
+          setRole("");
         } else {
-          console.error("Failed to submit project data:", response.status);
+          alert("Failed to submit project data:");
+          navigate("/login")
         }
       }
     } catch (error) {
@@ -122,6 +126,14 @@ const ProjectForm = () => {
               </option>
               <option value="Data Science">Data Science</option>
               <option value="Cybersecurity">Cybersecurity</option>
+            </select>
+          </label>
+
+          <label className="role-select">
+            <select value={role} onChange={(e) => setRole(e.target.value)}>
+              <option value="">Select a role</option>
+              <option value="Admin">Admin</option>
+              <option value="Student">Student</option>
             </select>
           </label>
           

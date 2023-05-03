@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import CohortForm from "../CohortForm/cohortForm";
 import "./cohort.css";
 import Sidebar from "../sidebar/Sidebar";
+import { useNavigate } from "react-router-dom";
 
 const Cohorts = () => {
   const [cohorts, setCohorts] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [selectedCohortIndex, setSelectedCohortIndex] = useState(-1);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCohorts();
@@ -22,62 +25,15 @@ const Cohorts = () => {
     }
   };
 
-  // let url = '';
-  // switch (cohorts.course_id) {
-  //   case '1':
-  //     url = 'Android Development';
-  //     break;
-  //   case '2':
-  //     url = 'Full-Stack Development';
-  //     break;
-  //   case '3':
-  //     url = ';
-  //     break;
-  //   case 'Cybersecurity':
-  //     url = 'http://127.0.0.1:3000/courses/4/projects';
-  //     break;
-  //   default:
-  //     break;
-  // }
+ 
 
   const handleAddCohort = (newCohort) => {
+
     setCohorts([...cohorts, newCohort]);
     setShowForm(false);
   };
 
-  // const handleDeleteCohort = (cohortIndex) => {
-  //   const shouldDelete = window.confirm('Are you sure you want to delete this cohort?');
-  //   if (shouldDelete) {
-  //     const newCohorts = [...cohorts];
-  //     newCohorts.splice(cohortIndex, 1);
-  //     setCohorts(newCohorts);
-  //   }
-  // };
-
-  // const handleDeleteCohort = (id) => {
-  //   const shouldDelete = window.confirm('Are you sure you want to delete this cohort?');
-  //   // if (shouldDelete) {
-  //   //   const cohortToDelete = cohorts[cohortIndex];
-
-  //     // Make a DELETE request to the server to delete the cohort
-  //     fetch(`http://localhost/3000/courses/${id}/cohorts`, {
-  //       method: 'DELETE'
-  //     })
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('Failed to delete cohort');
-  //       }
-
-  //       // If the cohort was successfully deleted, update the state
-  //       //const newCohorts = cohorts.filter(cohort => cohort.id !== cohortToDelete.id);
-  //       //setCohorts(newCohorts);
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //       alert('Failed to delete cohort');
-  //     });
-
-  // };
+  
 
   const handleShowForm = () => {
     setSelectedCohortIndex(-1);
@@ -100,6 +56,8 @@ const Cohorts = () => {
           const newCohorts = cohorts.filter((cohort) => cohort.id !== id);
           setCohorts(newCohorts);
         } else {
+          alert("please login");
+          navigate("/login");
           throw new Error("Failed to delete cohort");
         }
       }
@@ -156,15 +114,7 @@ const Cohorts = () => {
                     >
                       Delete
                     </button>
-                    <button
-                      className="update-button"
-                      onClick={() => {
-                        setSelectedCohortIndex(index);
-                        setShowForm(true);
-                      }}
-                    >
-                      Update
-                    </button>
+                    
                   </td>
                 </tr>
               ))}
