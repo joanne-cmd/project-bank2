@@ -46,7 +46,6 @@ const CohortForm = (props) => {
         .catch((error) => console.log(error));
 
         alert("Only adims can add cohorts");
-        navigate("/login");
     }
   };
 

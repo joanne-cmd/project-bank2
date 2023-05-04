@@ -57,8 +57,7 @@ const Cohorts = () => {
           const newCohorts = cohorts.filter((cohort) => cohort.id !== id);
           setCohorts(newCohorts);
         } else {
-          alert("please login");
-          navigate("/login");
+          
           throw new Error("Failed to delete cohort");
         }
       }

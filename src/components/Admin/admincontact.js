@@ -32,7 +32,7 @@ function Contact() {
     <>
       <AdminSidebar />
 
-      <h1 className="title">Contact</h1>
+      <h1 className="title">Contact us</h1>
 
       <div className="contacts">
         <div className="sidecontact">

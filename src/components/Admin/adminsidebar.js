@@ -15,9 +15,12 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul>
+        <li>
+          <h2>Admin</h2>
+        </li>
         <li className="options">
           <NavLink to="/cohorts">
-            <FontAwesomeIcon icon={faChartLine} /> <span>Cohorts</span>
+            <FontAwesomeIcon icon={faChartLine} /> <span>Dashboard</span>
           </NavLink>
         </li>
         

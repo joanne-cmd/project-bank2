@@ -11,10 +11,10 @@
 } 
 
 .sidebar  li{
-  margin-top: 50px;
+  margin-top: 30px;
     list-style-type: none;
     text-decoration: none;
-    padding-top: 25px;
+    padding-top: 0.5px;
     padding-bottom: 25px;
     font-size: x-large;
              
@@ -46,9 +46,8 @@ margin-top: 20px;
   .sidebar ul li a span {
     margin-left: 20px;
   }
-  .auth-options{
-    margin-top: 3px;
-  }
+  /* .auth-options{
+margin  } */
 
   .auth-options:hover{
     background-color: white;

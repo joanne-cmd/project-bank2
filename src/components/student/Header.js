@@ -1,4 +1,6 @@
 import "./Header.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -20,17 +22,13 @@ function Header({ currentUser }) {
         />
         <h2 className="title__h">Pay-Bank</h2>
 
-        {/* <div className="header-nav">
-          {Array.isArray(currentUser) ? (
-            <span className="option-one" onClick={handleLogout}>
-              Welcome {currentUser[0].username}
-            </span>
-          ) : (
-            <span className="option-one">Not Logged In</span>
-          )}
-        </div> */}
+        <div className="header-nav">
+          <span className="option-one" onClick={handleLogout}>
+             Welcome  
+          </span>
+         
+        </div>
       </div>
-
     </>
   );
 }
