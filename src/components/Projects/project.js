@@ -70,7 +70,7 @@ function ShowProjects() {
                     data-title="Peggy Brown"
                     data-toggle="tooltip"
                   />
-                  <p class="card-text">{project.description}</p>
+                  <p class="card_text">{project.description}</p>
                  <button
                     href="#"
                     class="btn btn-primary"
@@ -104,8 +104,8 @@ const Project = ({ projectData }) => {
       <Sidebar />
 
       <div className="project-container">
+        <h2> Projects</h2>
         <section className="project-container-header">
-          <h2>All Projects</h2>
           <button
             onClick={handleAddProject}
             className="add-project-button primary"

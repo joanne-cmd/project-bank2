@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { Link } from "react-router-dom";
 import "./cybersec.css";
 
 function CyberSecurity() {
@@ -32,7 +33,8 @@ function CyberSecurity() {
     <>
       <div className="project-container">
         <section className="project-container-header">
-          <h2>CyberSecurity Projects</h2>
+          
+          <Link to ='/course'><h2>CyberSecurity Projects</h2></Link>
           <button
             onClick={handleAddProject}
             className="add-project-button primary"
