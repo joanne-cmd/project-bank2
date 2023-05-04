@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom";
 import "./project.css";
 import Sidebar from "../sidebar/Sidebar";
-import ProjectDetails from "../Projectdets/projectdets";
+import ProjectDetails from "./../Projectdets/projectdets";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 function ShowProjects() {
-  // State to store added projects
   const [projects, setProjects] = useState(undefined);
   const [projectData, setProjectData] = useState(null);
 
@@ -17,12 +18,6 @@ function ShowProjects() {
       .then((projects) => setProjects(projects))
       .catch((err) => alert("unable to get projects."));
   }
-
-  // function viewProject (id) {
-  // 	fetch(`http://localhost/3000/projects/${id}`)
-  // 		.then((res) => res.json())
-  // 		.then((projectData) => projectData)
-  // }
 
   function viewProject(id) {
     fetch(`/projects/${id}`)
@@ -40,49 +35,50 @@ function ShowProjects() {
   }, []);
 
   return (
-    <section className="projects-containr">
+    <section className="projects-container">
       {projects && projects.length > 0 ? (
-        projects.map((project, index) => {
-          return (
-            <div className="project" key={index}>
-              <section className="image-container"></section>
-              <section className="project-actions">
-                <div className="card-body">
-                  <h5 className="card-title">{project.name}</h5>
-                  <img
-                    alt="avat"
-                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                    className="avatar avatar-lg rounded-circle"
-                    data-title="Peggy Brown"
-                    data-toggle="tooltip"
-                  />
-                  <img
-                    alt="avat"
-                    src="https://media.licdn.com/dms/image/C4E03AQFn8-FJxE-O6Q/profile-displayphoto-shrink_400_400/0/1649963399162?e=1688601600&v=beta&t=jQ2QietUvIXkKxEfhFl4DVuVEl7WEt-Jr8V-QKbzYus"
-                    className="avatar avatar-lg rounded-circle"
-                    data-title="Peggy Brown"
-                    data-toggle="tooltip"
-                  />
-                  <img
-                    alt="avat"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2zpdkcmaH-9kmfHQYEQkd7KmgJpAwTOXBA&usqp=CAU"
-                    className="avatar avatar-lg rounded-circle"
-                    data-title="Peggy Brown"
-                    data-toggle="tooltip"
-                  />
-                  <p class="card_text">{project.description}</p>
-                 <button
-                    href="#"
-                    class="btn btn-primary"
-                    onClick={() => viewProject(project.id)}
-                  >
-                    View Details
-                 </button>
-                </div>
-              </section>
-            </div>
-          );
-        })
+        <ol className="projects-list">
+          {projects.map((project, index) => {
+            return (
+              <li key={index} className="project-item">
+                {/* <section className="image-container"></section> */}
+                <section className="project-actions">
+                  <div className="card-body">
+                    {/* <div className="avatar-container">
+                      <img
+                        alt="avatar"
+                        src={project.avatar1}
+                        className="avatar avatar-lg rounded-circle"
+                      />
+                      <img
+                        alt="avatar"
+                        src={project.avatar2}
+                        className="avatar avatar-lg rounded-circle"
+                      />
+                      <img
+                        alt="avatar"
+                        src={project.avatar3}
+                        className="avatar avatar-lg rounded-circle"
+                      />
+                    </div> */}
+                    <h5 className="card-title">{project.name}</h5>
+                    <p className="card-text">{project.description}</p>
+                    <button
+                      className="view-details-button"
+                      onClick={() => viewProject(project.id)}
+                    >
+                      View Details
+                    </button>
+                    <button className="like-button">
+                      <FontAwesomeIcon icon={faThumbsUp} />
+                      <span className="like-count">{project.likes}</span>
+                    </button>
+                  </div>
+                </section>
+              </li>
+            );
+          })}
+        </ol>
       ) : (
         <h1>No projects found.</h1>
       )}
@@ -91,10 +87,8 @@ function ShowProjects() {
 }
 
 const Project = ({ projectData }) => {
-  // Get the navigate function from useNavigate
   const navigate = useNavigate();
 
-  // Function to handle "Add Project" button click
   const handleAddProject = () => {
     navigate("/add-project");
   };
@@ -104,7 +98,7 @@ const Project = ({ projectData }) => {
       <Sidebar />
 
       <div className="project-container">
-        <h2> Projects</h2>
+        <h2>Projects</h2>
         <section className="project-container-header">
           <button
             onClick={handleAddProject}

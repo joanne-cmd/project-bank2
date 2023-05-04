@@ -1,118 +1,124 @@
-/* Set up some global styles */
-:root {
-  --primary-color: #0077b6;
-  --secondary-color: #ebebeb;
-  --text-color: #333;
+
+
+.projects-grid {
+    /* display: grid; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    margin-left: 220px;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Change here */
+  gap: 1rem;
+}
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+.projects-container {
+  padding: 1rem;
 }
 
-.project-container {
-  margin-left: 500px;
-  padding: 40px;
-}
-
-.project-container-header {
+.projects-list {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.project-container-header h2 {
-  font-size: 28px;
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-.add-project-button {
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 20px;
-  transition: all 0.2s ease-in-out;
-}
-
-.add-project-button:hover {
-  background-color: #005580;
-}
-
-/* Style the projects container */
-.projects-containr {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  margin: 0 -10px;
 }
 
 .project {
-  background-color: #fff;
-  border: 1px solid #ebebeb;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  width: 32%;
+  width: calc(50% - 20px);
+  margin: 0 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.project .image-container {
-  background-color: #ebebeb;
-  width: 1000px;
+.image-container {
+  height: 210px;
+  background-color: #eee;
+  border-radius: 10px 10px 0 0;
 }
 
-.project .project-actions {
-  padding: 20px;
-}
-.avatar 
-{ width: 30px;
-    height: 30px;
-    background-size: cover;
-    border-radius: 50%;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-}
-.project .project-actions h5 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.project-actions {
+  padding: 1rem;
 }
 
-.project .project-actions p {
-  color: #555;
-  font-size: 16px;
-  line-height: 1.4;
-  margin-bottom: 10px;
-}
-
-.project .project-actions .card-body {
+.avatar-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.project .project-actions .avatar {
-  margin-bottom: 10px;
+.avatar {
+  margin-right: 0.5rem;
 }
 
-.project .project-actions button {
-  background-color: var(--primary-color);
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+
+
+.like-button {
+  background-color: #dc3545;
+  color: white;
+  margin:2px;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
-  color: #fff;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 20px;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.project .project-actions button:hover {
-  background-color: #474747;
+.like-button:hover {
+  background-color: #c82333;
 }
+
+.like-count {
+  margin-left: 0.5rem;
+}
+
+.add-project-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-project-button:hover {
+  background-color: #0069d9;
+}
+
+.primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+.view-details-button {
+    background-color: #1784bf;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.view-details-button:hover {
+    background-color: #1784bf;
+}
+
+

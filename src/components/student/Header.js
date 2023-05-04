@@ -1,6 +1,6 @@
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,9 +24,8 @@ function Header({ currentUser }) {
 
         <div className="header-nav">
           <span className="option-one" onClick={handleLogout}>
-             Welcome  
+            Welcome <FontAwesomeIcon icon={faUser} />
           </span>
-         
         </div>
       </div>
     </>
