@@ -18,7 +18,7 @@ const Cohorts = () => {
 
   const fetchCohorts = async () => {
     try {
-      const res = await fetch("http://localhost:3000/cohorts");
+      const res = await fetch("/cohorts");
       const data = await res.json();
       setCohorts(data);
     } catch (err) {
@@ -50,7 +50,7 @@ const Cohorts = () => {
         "Are you sure you want to delete this cohort?"
       );
       if (shouldDelete) {
-        const res = await fetch(`http://courses/:course_id/cohorts/:id `, {
+        const res = await fetch(`/cohorts/${id}`, {
           method: "DELETE",
         });
         if (res.ok) {
