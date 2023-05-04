@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import { Link } from "react-router-dom";
 import "./fullstack.css";
@@ -7,20 +8,22 @@ function FullStack() {
   const [projects, setProjects] = useState([]);
   const [projectData, setProjectData] = useState(null);
   const navigate = useNavigate();
+  
+  const {apiUrl}=useContext(ProjectBankContext)
 
   const handleAddProject = () => {
     navigate("/add-project");
   };
 
   useEffect(() => {
-    fetch("/courses/2/projects")
+    fetch(`${apiUrl}/courses/2/projects`)
       .then((response) => response.json())
       .then((data) => setProjects(data))
       .catch((error) => console.log(error));
   }, []);
 
   function viewProject(id) {
-    fetch(`/projects/${id}`)
+    fetch(`${apiUrl}/projects/${id}`)
       .then((res) => res.json())
       .then((projectData) => {
         console.log(projectData);

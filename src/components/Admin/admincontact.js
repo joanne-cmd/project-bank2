@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import "./admincontact.css";
 import AdminSidebar from "./adminsidebar";
 import { Link } from "react-router-dom";
@@ -7,6 +8,8 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  
+  const {apiUrl}=useContext(ProjectBankContext)
 
   const handleFullNameChange = (e) => {
     setFullName(e.target.value);

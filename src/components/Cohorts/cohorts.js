@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import CohortForm from "../CohortForm/cohortForm";
 import "./cohort.css";
 import AdminSidebar from "./../Admin/adminsidebar";
@@ -12,13 +13,15 @@ const Cohorts = () => {
 
   const navigate = useNavigate();
 
+  const {apiUrl}=useContext(ProjectBankContext)
+  
   useEffect(() => {
     fetchCohorts();
   }, []);
 
   const fetchCohorts = async () => {
     try {
-      const res = await fetch("/cohorts");
+      const res = await fetch(`${apiUrl}/cohorts`);
       const data = await res.json();
       setCohorts(data);
     } catch (err) {
@@ -50,7 +53,7 @@ const Cohorts = () => {
         "Are you sure you want to delete this cohort?"
       );
       if (shouldDelete) {
-        const res = await fetch(`/cohorts/${id}`, {
+        const res = await fetch(`${apiUrl}/cohorts/${id}`, {
           method: "DELETE",
         });
         if (res.ok) {

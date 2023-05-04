@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import { useNavigate } from "react-router-dom";
 import "./adminproject.css";
 import Sidebar from "../sidebar/Sidebar";
@@ -12,15 +13,17 @@ function ShowProjects() {
 
   const navigate = useNavigate();
 
+  const {apiUrl}=useContext(ProjectBankContext)
+
   function showProjects() {
-    fetch("/projects")
+    fetch(`${apiUrl}/projects`)
       .then((res) => res.json())
       .then((projects) => setProjects(projects))
       .catch((err) => alert("unable to get projects."));
   }
 
   function viewProject(id) {
-    fetch(`/projects/${id}`)
+    fetch(`${apiUrl}/projects/${id}`)
       .then((res) => res.json())
       .then((projectData) => {
         console.log(projectData);

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 
@@ -14,6 +15,7 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
+  const {apiUrl}=useContext(ProjectBankContext)
 
   const handleLogin = async () => {
     // Extract the domain from the email address
@@ -24,7 +26,7 @@ const Login = () => {
 
     try {
       // Make HTTP request to backend for login
-      const response = await axios.post("/login", {
+      const response = await axios.post(`${apiUrl}/login`, {
         email,
         password,
       });
@@ -56,7 +58,7 @@ const Login = () => {
     try {
       // Make HTTP request to backend for password reset
       const response = await axios.post(
-        "http://127.0.0.1:3000/password_reset",
+        `${apiUrl}/password_reset`,
         {
           email,
           type,

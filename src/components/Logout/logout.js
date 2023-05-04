@@ -1,12 +1,15 @@
-import React from "react";
+import React,{useContext} from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import "./logout.css"; // Import CSS file for styling
 import { useNavigate } from "react-router-dom";
 
 const LogoutForm = () => {
   const navigate = useNavigate();
 
+  const {apiUrl}=useContext(ProjectBankContext)
+
   function handleLogout() {
-    fetch("/logout", {
+    fetch(`${apiUrl}/logout`, {
       method: "DELETE",
     })
       .then((response) => {

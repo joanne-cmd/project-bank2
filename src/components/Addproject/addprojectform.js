@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import "./Addproject.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+
 
 import Sidebar from "../sidebar/Sidebar";
 const ProjectForm = () => {
@@ -12,6 +14,8 @@ const ProjectForm = () => {
   const [role, setRole]= useState("");
   const navigate = useNavigate();
 
+  const {apiUrl}=useContext(ProjectBankContext)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const projectData = {
@@ -22,19 +26,19 @@ const ProjectForm = () => {
       role
     };
 
-    let url = "";
+    let url = apiUrl;
     switch (course) {
       case "Android Development":
-        url = "http://127.0.0.1:3000/courses/1/projects";
+        url += "/courses/1/projects";
         break;
       case "Full-Stack Development":
-        url = "http://127.0.0.1:3000/courses/2/projects";
+        url += "/courses/2/projects";
         break;
       case "Data Science":
-        url = "http://127.0.0.1:3000/courses/4/projects";
+        url += "/courses/4/projects";
         break;
       case "Cybersecurity":
-        url = "http://127.0.0.1:3000/courses/3/projects";
+        url += "/courses/3/projects";
         break;
       default:
         break;

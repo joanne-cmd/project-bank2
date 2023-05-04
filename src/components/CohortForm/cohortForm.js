@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import "./cohortForm.css";
 import Input from "../Form/input";
  import { useNavigate } from "react-router-dom";
@@ -9,24 +10,26 @@ const CohortForm = (props) => {
 
   const navigate = useNavigate();
 
+  const {apiUrl}=useContext(ProjectBankContext)
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const newCohort = { name, number_of_students };
 
     // fetch POST request based on the selected course
-    let url = "";
+    let url = apiUrl;
     switch (course) {
       case "Android Development":
-        url = "/courses/1/cohorts";
+        url += "/courses/1/cohorts";
         break;
       case "Full-Stack Development":
-        url = "/courses/2/cohorts";
+        url += "/courses/2/cohorts";
         break;
       case "Data Science":
-        url = "/courses/3/cohorts";
+        url  += "/courses/3/cohorts";
         break;
       case "Cybersecurity":
-        url = "/courses/4/cohorts";
+        url += "/courses/4/cohorts";
         break;
       default:
         break;

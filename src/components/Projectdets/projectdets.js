@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import { ProjectBankContext } from "../Projectbankcont";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -7,12 +8,13 @@ import "./projectdets.css";
 const ProjectDetails = () => {
   const location = useLocation();
   const projectData = location.state?.projectData;
+  const {apiUrl}=useContext(ProjectBankContext)
 
   const navigate = useNavigate();
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`courses/${projectData.course_id}/projects/${projectData.id}}`, {
+      const response = await fetch(`${apiUrl}courses/${projectData.course_id}/projects/${projectData.id}}`, {
         method: "DELETE",
       });
       if (response.ok) {
