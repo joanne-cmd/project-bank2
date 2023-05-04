@@ -17,16 +17,16 @@ const CohortForm = (props) => {
     let url = "";
     switch (course) {
       case "Android Development":
-        url = "http://127.0.0.1:3000/courses/1/cohorts";
+        url = "/courses/1/cohorts";
         break;
       case "Full-Stack Development":
-        url = "http://127.0.0.1:3000/courses/2/cohorts";
+        url = "/courses/2/cohorts";
         break;
       case "Data Science":
-        url = "http://127.0.0.1:3000/courses/3/cohorts";
+        url = "/courses/3/cohorts";
         break;
       case "Cybersecurity":
-        url = "http://127.0.0.1:3000/courses/4/cohorts";
+        url = "/courses/4/cohorts";
         break;
       default:
         break;
@@ -45,7 +45,10 @@ const CohortForm = (props) => {
         })
         .catch((error) => console.log(error));
 
+<<<<<<< HEAD
         alert("Only adims can add cohorts");
+=======
+>>>>>>> d3ccace049013c445232f83fa853a2d0b5a98ebf
         
     }
   };
