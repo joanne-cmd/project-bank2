@@ -19,6 +19,12 @@ To get started with this project, follow these steps:
 2. Install dependencies with `npm install`.
 3. Start the development server with `npm start`.
 
+## Login Credentials
+
+Student - email: "isaac.tonyloi@student.moringaschool.com", password: "isaac123"
+Admin - email: "isaac.tonyloi@admin.moringaschool.com", password: "isaacadmin123"
+
+
 ## Dependencies
 
 This project uses the following dependencies:
