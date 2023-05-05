@@ -14,7 +14,7 @@ const ProjectDetails = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`${apiUrl}courses/${projectData.course_id}/projects/${projectData.id}}`, {
+      const response = await fetch(`${apiUrl}/courses/${projectData.course_id}/projects/${projectData.id}}`, {
         method: "DELETE",
       });
       if (response.ok) {
