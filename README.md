@@ -23,6 +23,9 @@ To get started with this project, follow these steps:
 
 Student - email: "isaac.tonyloi@student.moringaschool.com", password: "isaac123"
 Admin - email: "isaac.tonyloi@admin.moringaschool.com", password: "isaacadmin123"
+student-email: "joanne.mumbi@admin.moringaschool.com", password:"joanne12"
+ 
+  
 
 
 ## Dependencies
